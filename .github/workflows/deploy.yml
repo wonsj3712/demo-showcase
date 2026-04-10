@@ -30,7 +30,7 @@ jobs:
       - name: Install & Build epc-demo
         working-directory: epc-demo
         run: |
-          npm ci
+          npm install
           npm run build
 
       # 배포용 폴더 조합: 루트 index.html + 각 데모의 dist
