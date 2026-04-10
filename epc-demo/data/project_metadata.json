@@ -1,0 +1,261 @@
+{
+  "project": {
+    "id": "PRJ-2026-001",
+    "name": "Al-Jubail Refinery Expansion",
+    "name_kr": "알주바일 정유 플랜트 확장 프로젝트",
+    "client": "Saudi Aramco",
+    "epc_contractor": "Doosan Enerbility",
+    "location": "Al-Jubail Industrial City, Saudi Arabia",
+    "contract_value_usd": 1200000000,
+    "start_date": "2025-06-01",
+    "target_completion": "2028-12-31",
+    "current_phase": "Detailed Engineering & Procurement",
+    "overall_progress_pct": 28.5,
+    "key_units": [
+      "CDU (Crude Distillation Unit)",
+      "VDU (Vacuum Distillation Unit)",
+      "HDS (Hydrodesulfurization Unit)",
+      "Utility & Offsite",
+      "Tank Farm"
+    ]
+  },
+  "organizations": [
+    {
+      "id": "ORG-001",
+      "name": "Doosan Enerbility",
+      "name_kr": "두산에너빌리티",
+      "role": "EPC Contractor (Main)",
+      "domain": "doosan.com"
+    },
+    {
+      "id": "ORG-002",
+      "name": "Saudi Aramco",
+      "name_kr": "사우디 아람코",
+      "role": "Client / Owner",
+      "domain": "aramco.com"
+    },
+    {
+      "id": "ORG-003",
+      "name": "HD Hyundai Heavy Industries",
+      "name_kr": "HD현대중공업",
+      "role": "Vendor - Rotating Equipment",
+      "domain": "hd-hyundai.com"
+    },
+    {
+      "id": "ORG-004",
+      "name": "Doosan Heavy Industries",
+      "name_kr": "두산중공업",
+      "role": "Vendor - Boiler & Turbine",
+      "domain": "doosanheavy.com"
+    },
+    {
+      "id": "ORG-005",
+      "name": "POSCO E&C",
+      "name_kr": "포스코",
+      "role": "Vendor - Structural Steel & Piping",
+      "domain": "posco.com"
+    }
+  ],
+  "teams": [
+    {
+      "id": "TEAM-ENG",
+      "name": "Plant Engineering Team",
+      "name_kr": "플랜트 설계팀",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "TEAM-PROC",
+      "name": "Procurement Team",
+      "name_kr": "조달팀",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "TEAM-CONST",
+      "name": "Construction Management Team",
+      "name_kr": "시공관리팀",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "TEAM-QC",
+      "name": "Quality Control Team",
+      "name_kr": "QC팀",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "TEAM-HSE",
+      "name": "HSE Team",
+      "name_kr": "HSE팀",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "TEAM-PMO",
+      "name": "Project Management Office",
+      "name_kr": "PMO",
+      "org_id": "ORG-001"
+    }
+  ],
+  "members": [
+    {
+      "id": "MEM-001",
+      "name": "김태영",
+      "name_en": "Taeyoung Kim",
+      "email": "ty.kim@doosan.com",
+      "title": "Project Director",
+      "team_id": "TEAM-PMO",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-002",
+      "name": "박설계",
+      "name_en": "Seolgye Park",
+      "email": "sg.park@doosan.com",
+      "title": "Lead Process Engineer",
+      "team_id": "TEAM-ENG",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-003",
+      "name": "이준혁",
+      "name_en": "Junhyuk Lee",
+      "email": "jh.lee@doosan.com",
+      "title": "Piping Design Lead",
+      "team_id": "TEAM-ENG",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-004",
+      "name": "최민수",
+      "name_en": "Minsu Choi",
+      "email": "ms.choi@doosan.com",
+      "title": "Procurement Manager",
+      "team_id": "TEAM-PROC",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-005",
+      "name": "정하은",
+      "name_en": "Haeun Jeong",
+      "email": "he.jeong@doosan.com",
+      "title": "Procurement Engineer",
+      "team_id": "TEAM-PROC",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-006",
+      "name": "한상우",
+      "name_en": "Sangwoo Han",
+      "email": "sw.han@doosan.com",
+      "title": "Construction Manager",
+      "team_id": "TEAM-CONST",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-007",
+      "name": "윤서진",
+      "name_en": "Seojin Yoon",
+      "email": "sj.yoon@doosan.com",
+      "title": "Site Superintendent",
+      "team_id": "TEAM-CONST",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-008",
+      "name": "강민정",
+      "name_en": "Minjeong Kang",
+      "email": "mj.kang@doosan.com",
+      "title": "QC Manager",
+      "team_id": "TEAM-QC",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-009",
+      "name": "오재현",
+      "name_en": "Jaehyun Oh",
+      "email": "jh.oh@doosan.com",
+      "title": "QC Inspector",
+      "team_id": "TEAM-QC",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-010",
+      "name": "송지훈",
+      "name_en": "Jihun Song",
+      "email": "jh.song@doosan.com",
+      "title": "HSE Manager",
+      "team_id": "TEAM-HSE",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-011",
+      "name": "임수빈",
+      "name_en": "Subin Lim",
+      "email": "sb.lim@doosan.com",
+      "title": "Safety Officer",
+      "team_id": "TEAM-HSE",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-012",
+      "name": "배진우",
+      "name_en": "Jinwoo Bae",
+      "email": "jw.bae@doosan.com",
+      "title": "Planning & Scheduling Manager",
+      "team_id": "TEAM-PMO",
+      "org_id": "ORG-001"
+    },
+    {
+      "id": "MEM-013",
+      "name": "Ahmed Al-Rashid",
+      "name_en": "Ahmed Al-Rashid",
+      "email": "a.alrashid@aramco.com",
+      "title": "Project Manager (Owner Representative)",
+      "team_id": null,
+      "org_id": "ORG-002"
+    },
+    {
+      "id": "MEM-014",
+      "name": "Mohammed Al-Harbi",
+      "name_en": "Mohammed Al-Harbi",
+      "email": "m.alharbi@aramco.com",
+      "title": "Technical Review Engineer",
+      "team_id": null,
+      "org_id": "ORG-002"
+    },
+    {
+      "id": "MEM-015",
+      "name": "장원철",
+      "name_en": "Woncheol Jang",
+      "email": "wc.jang@hd-hyundai.com",
+      "title": "Sales Manager - Rotating Equipment",
+      "team_id": null,
+      "org_id": "ORG-003"
+    },
+    {
+      "id": "MEM-016",
+      "name": "서영호",
+      "name_en": "Youngho Seo",
+      "email": "yh.seo@doosanheavy.com",
+      "title": "Project Engineer - Boiler Division",
+      "team_id": null,
+      "org_id": "ORG-004"
+    },
+    {
+      "id": "MEM-017",
+      "name": "나경태",
+      "name_en": "Kyungtae Na",
+      "email": "kt.na@posco.com",
+      "title": "Structural Steel Supply Manager",
+      "team_id": null,
+      "org_id": "ORG-005"
+    },
+    {
+      "id": "MEM-018",
+      "name": "유동현",
+      "name_en": "Donghyun Yoo",
+      "email": "dh.yoo@doosan.com",
+      "title": "Instrument & Electrical Lead",
+      "team_id": "TEAM-ENG",
+      "org_id": "ORG-001"
+    }
+  ]
+}

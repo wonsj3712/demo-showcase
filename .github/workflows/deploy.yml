@@ -1,0 +1,57 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # EPC Demo 빌드
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: epc-demo/package-lock.json
+
+      - name: Install & Build epc-demo
+        working-directory: epc-demo
+        run: |
+          npm ci
+          npm run build
+
+      # 배포용 폴더 조합: 루트 index.html + 각 데모의 dist
+      - name: Assemble site
+        run: |
+          mkdir -p _site/epc-demo
+          cp index.html _site/
+          cp -r epc-demo/dist/* _site/epc-demo/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

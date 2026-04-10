@@ -1,0 +1,565 @@
+[
+  {
+    "id": "EMAIL-001",
+    "subject": "[PRJ-2026-001] CDR Review Comments - Heat Exchanger E-1201",
+    "from": { "name": "Mohammed Al-Harbi", "email": "m.alharbi@aramco.com", "org": "Saudi Aramco" },
+    "to": [{ "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" },
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-10T09:30:00+03:00",
+    "thread_id": "THD-001",
+    "body": "Dear Mr. Park,\n\nPlease find attached our review comments on the CDR package for Heat Exchanger E-1201 (CDU Section).\n\nWe have identified the following critical items that require your immediate attention:\n\n1. Tube material specification: The current design shows SA-214 carbon steel tubes, however considering the high sulfur content in the crude feed (3.2 wt%), we strongly recommend upgrading to SA-213 T5 (5Cr-0.5Mo) to ensure adequate corrosion resistance. This is a mandatory requirement per Saudi Aramco Engineering Standard SAES-L-133.\n\n2. Shell-side design pressure: The current MDMT of -29°C may not be adequate for the winter startup scenario. Please review against SAEP-310 requirements.\n\n3. Nozzle orientation: F1/F2 nozzle orientation conflicts with the current plot plan arrangement shown in Drawing PL-CDU-001 Rev.B.\n\nPlease submit your response with updated calculations within 10 working days.\n\n위 3건의 comment 중 1번 항목은 반드시 금주 내로 material selection basis를 재검토하여 회신 부탁드립니다.\n\nBest regards,\nMohammed Al-Harbi\nTechnical Review Engineer, Saudi Aramco",
+    "attachments": [
+      { "name": "CDR_Review_Comments_E-1201_Rev0.pdf", "type": "pdf" },
+      { "name": "SAES-L-133_Extract.pdf", "type": "pdf" }
+    ],
+    "category": "설계변경"
+  },
+  {
+    "id": "EMAIL-002",
+    "subject": "RE: [PRJ-2026-001] CDR Review Comments - Heat Exchanger E-1201",
+    "from": { "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "Mohammed Al-Harbi", "email": "m.alharbi@aramco.com", "org": "Saudi Aramco" }],
+    "cc": [
+      { "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" },
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+      { "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-12T14:15:00+03:00",
+    "thread_id": "THD-001",
+    "body": "Dear Mr. Al-Harbi,\n\nThank you for your review comments on E-1201.\n\n각 항목에 대한 저희 초기 검토 결과를 공유드립니다:\n\n1. Tube material 변경 (SA-214 → SA-213 T5): 기술적으로 동의합니다. 다만 해당 material 변경 시 cost impact이 약 $350K 수준으로 예상되며, 납기도 기존 대비 4주 추가 소요될 것으로 보입니다. 최민수 조달팀장님을 CC에 추가하였으니, vendor quotation update를 진행하겠습니다.\n\n2. MDMT 재검토: Impact test data 기반으로 재계산 중이며, 금주 금요일까지 updated calculation sheet를 제출하겠습니다.\n\n3. Nozzle orientation: Plot plan Rev.C에서 이미 반영 완료된 사항입니다. 최신 도면을 첨부하오니 확인 부탁드립니다.\n\n조달팀에서 HD현대중공업 측에 revised specification 기반 quotation을 요청할 예정입니다.\n\nBest regards,\n박설계 / Lead Process Engineer\nDoosan Enerbility",
+    "attachments": [
+      { "name": "PL-CDU-001_RevC.dwg", "type": "dwg" },
+      { "name": "E-1201_Preliminary_Cost_Impact.xlsx", "type": "xlsx" }
+    ],
+    "category": "설계변경"
+  },
+  {
+    "id": "EMAIL-003",
+    "subject": "[PRJ-2026-001] P&ID Revision Request - VDU Section (DWG-VDU-PID-003)",
+    "from": { "name": "이준혁", "email": "jh.lee@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "유동현", "email": "dh.yoo@doosan.com", "org": "두산에너빌리티" },
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-14T10:00:00+03:00",
+    "thread_id": "THD-002",
+    "body": "박 리드님,\n\nVDU Section P&ID (DWG-VDU-PID-003 Rev.D) 검토 중 아래 사항을 확인하여 revision 요청드립니다.\n\n1. V-2301 (Vacuum Column) overhead line에 Pressure Safety Valve PSV-2301A/B가 누락되어 있습니다. HAZOP Action Item #47에서 이미 식별된 사항이며, 현재 P&ID에 미반영 상태입니다.\n\n2. HDS Unit에서 넘어오는 Tie-in point TI-HDS-05의 line size가 8\"로 표기되어 있으나, Process Simulation 결과 기준으로 10\"가 필요합니다. Line sizing calculation (DOC-LS-VDU-012)과 불일치합니다.\n\n3. LV-2305 (Level Control Valve) 후단에 block valve가 빠져있습니다. Maintenance 접근성 확보를 위해 추가 필요합니다.\n\n위 사항들은 다음 주 DDR (Detailed Design Review) 전까지 반영이 필요합니다. 특히 1번 PSV 누락 건은 SIL 관련 사항이므로 우선 처리 부탁드립니다.\n\nI&E팀 유동현 리드님도 참조 부탁드립니다. instrument hookup에 영향이 있을 수 있습니다.\n\n감사합니다.\n이준혁 / Piping Design Lead",
+    "attachments": [
+      { "name": "DWG-VDU-PID-003_RevD_Markup.pdf", "type": "pdf" },
+      { "name": "HAZOP_Action_Items_Status.xlsx", "type": "xlsx" }
+    ],
+    "category": "설계변경"
+  },
+  {
+    "id": "EMAIL-004",
+    "subject": "RE: [PRJ-2026-001] P&ID Revision Request - VDU Section (DWG-VDU-PID-003)",
+    "from": { "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "이준혁", "email": "jh.lee@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "유동현", "email": "dh.yoo@doosan.com", "org": "두산에너빌리티" },
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-15T08:45:00+03:00",
+    "thread_id": "THD-002",
+    "body": "이 리드님,\n\n검토 감사합니다. 각 항목 확인 결과입니다:\n\n1. PSV-2301A/B: 확인했습니다. HAZOP action item 미반영이 맞습니다. 오늘 중으로 P&ID에 반영하고, relief load calculation도 update하겠습니다. SIL assessment는 유동현 리드님과 함께 진행해야 할 것 같습니다.\n\n2. Line size 변경 (8\" → 10\"): Process simulation 재확인 결과 10\"가 맞습니다. 다만 이 변경으로 인해 pipe rack module PR-VDU-03의 structural loading이 변경됩니다. 포스코 측에 updated load data를 전달해야 합니다.\n\n3. Block valve 추가: 반영하겠습니다.\n\nDDR 전까지 Rev.E를 발행하도록 하겠습니다. 다만 2번 항목의 structural impact 검토에 시간이 필요하여, 최소 3일은 소요될 것 같습니다.\n\n유동현 리드님, SIL assessment 관련 미팅을 이번 주 내로 잡아주시면 감사하겠습니다.\n\n박설계",
+    "attachments": [],
+    "category": "설계변경"
+  },
+  {
+    "id": "EMAIL-005",
+    "subject": "[PRJ-2026-001] Design Change Notice - DCN-026-015: CDU Column Tray Modification",
+    "from": { "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" },
+    "to": [
+      { "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" },
+      { "name": "Mohammed Al-Harbi", "email": "m.alharbi@aramco.com", "org": "Saudi Aramco" }
+    ],
+    "cc": [
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+      { "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" },
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-18T11:00:00+03:00",
+    "thread_id": "THD-003",
+    "body": "Dear Mr. Al-Rashid,\n\nWe hereby submit Design Change Notice DCN-026-015 for your review and approval.\n\n[변경 내용]\n- 대상: CDU Column (C-1101) Internal Tray\n- 변경 사항: Tray type을 Valve Tray에서 High Performance Structured Packing으로 변경\n- 사유: Latest feed analysis (2026-01-15 sample) 결과, crude TBP curve가 initial design basis 대비 상당히 다릅니다. 현재 valve tray design으로는 target product spec (특히 Naphtha end point 및 Kerosene flash point)을 만족하기 어려운 것으로 simulation 결과 확인되었습니다.\n\n[Impact Assessment]\n- Cost impact: +$520,000 (packing material cost increase)\n- Schedule impact: Column fabrication 2주 지연 예상 (packing vendor lead time)\n- Performance: Separation efficiency 15% 향상, pressure drop 40% 감소\n\n[요청 사항]\n1. Client approval for DCN-026-015 by 2026-02-28\n2. Revised feed analysis data sharing (if available)\n\n첨부된 DCN Form 및 Technical Justification을 검토하시고, 2주 이내에 승인 여부를 회신 부탁드립니다.\n이 변경이 승인되지 않을 경우, product spec non-compliance risk가 있음을 알려드립니다.\n\nBest regards,\n박설계 / Lead Process Engineer",
+    "attachments": [
+      { "name": "DCN-026-015_Form.pdf", "type": "pdf" },
+      { "name": "DCN-026-015_Technical_Justification.pdf", "type": "pdf" },
+      { "name": "Simulation_Results_Comparison.xlsx", "type": "xlsx" }
+    ],
+    "category": "설계변경"
+  },
+  {
+    "id": "EMAIL-006",
+    "subject": "[PRJ-2026-001] Electrical Single Line Diagram 승인 요청 - Substation SS-01",
+    "from": { "name": "유동현", "email": "dh.yoo@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "Mohammed Al-Harbi", "email": "m.alharbi@aramco.com", "org": "Saudi Aramco" }],
+    "cc": [
+      { "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" },
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-20T13:30:00+03:00",
+    "thread_id": "THD-004",
+    "body": "Dear Mr. Al-Harbi,\n\nSubstation SS-01의 Single Line Diagram (DWG-EL-SLD-001 Rev.C)을 IFA (Issued for Approval) 단계로 제출합니다.\n\n주요 변경 사항 (Rev.B → Rev.C):\n- MCC-01A/B bus rating을 3200A에서 4000A로 upgrade (motor load re-calculation 결과 반영)\n- VFD (Variable Frequency Drive) 추가: P-1201A/B (CDU Reflux Pump)에 대해 에너지 절감 목적\n- Emergency generator G-001 auto transfer switch 로직 변경\n\n위 변경 중 VFD 추가 건은 Saudi Aramco SAES-P-100 요구사항과의 적합성 확인이 필요합니다. Harmonic analysis report도 함께 첨부하오니 검토 부탁드립니다.\n\nApproval target date: 2026-03-06\n\n감사합니다.\n유동현 / I&E Lead",
+    "attachments": [
+      { "name": "DWG-EL-SLD-001_RevC.dwg", "type": "dwg" },
+      { "name": "Harmonic_Analysis_Report.pdf", "type": "pdf" },
+      { "name": "Motor_Load_Summary.xlsx", "type": "xlsx" }
+    ],
+    "category": "설계변경"
+  },
+  {
+    "id": "EMAIL-007",
+    "subject": "[PRJ-2026-001] URGENT: Centrifugal Compressor C-3101 납기 지연 통보",
+    "from": { "name": "장원철", "email": "wc.jang@hd-hyundai.com", "org": "HD현대중공업" },
+    "to": [{ "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "정하은", "email": "he.jeong@doosan.com", "org": "두산에너빌리티" },
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-21T16:45:00+09:00",
+    "thread_id": "THD-005",
+    "body": "최민수 팀장님께,\n\n긴급하게 연락드립니다.\n\nPO-2026-0023에 따른 Centrifugal Compressor C-3101 (HDS Unit용)의 납기 관련 변경 사항을 통보드립니다.\n\n[현황]\n- 계약 납기: 2026-05-15\n- 변경 예상 납기: 2026-07-10 (약 8주 지연)\n\n[지연 사유]\n1. Impeller forging용 특수강 (ASTM A694 F65) 원자재 수급 문제 - 유럽 공급사의 생산 차질로 raw material 입고가 6주 지연\n2. 1단 impeller의 dynamic balancing test 과정에서 진동 이상 발견 - 재가공 필요 (추가 2주)\n\n현재 대안으로 일본 Kobe Steel 소재를 긴급 수입하는 방안을 검토 중이나, 이 경우에도 최소 4주 지연은 불가피합니다.\n\nCritical path에 해당하는 장비인 만큼, 빠른 시일 내에 대면 미팅을 요청드립니다. 가능하시면 이번 주 금요일(2/23) 오전에 울산 공장 방문 미팅을 제안합니다.\n\n미팅 시 recovery plan 및 alternative vendor option에 대해 상세히 논의하겠습니다.\n\n장원철 / Sales Manager\nHD현대중공업 회전기기사업부",
+    "attachments": [
+      { "name": "C-3101_Delivery_Status_Report.pdf", "type": "pdf" },
+      { "name": "Revised_Manufacturing_Schedule.xlsx", "type": "xlsx" }
+    ],
+    "category": "자재지연"
+  },
+  {
+    "id": "EMAIL-008",
+    "subject": "RE: [PRJ-2026-001] URGENT: Centrifugal Compressor C-3101 납기 지연 통보",
+    "from": { "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "장원철", "email": "wc.jang@hd-hyundai.com", "org": "HD현대중공업" }],
+    "cc": [
+      { "name": "정하은", "email": "he.jeong@doosan.com", "org": "두산에너빌리티" },
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" },
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-22T08:30:00+03:00",
+    "thread_id": "THD-005",
+    "body": "장원철 매니저님,\n\n통보 내용 확인했습니다. 매우 심각한 상황으로 인식하고 있습니다.\n\nC-3101은 HDS Unit의 critical path 장비로, 8주 지연 시 전체 프로젝트 Mechanical Completion에 직접적인 영향을 미칩니다. 현재 contract 상 LD (Liquidated Damages) 조항이 주당 $150,000이며, client 측에서 이미 공정 준수에 대해 강하게 push하고 있는 상황입니다.\n\n아래 사항을 요청드립니다:\n\n1. 2/23(금) 울산 미팅: 확인합니다. 당사에서 조달팀(최민수, 정하은) + PMO(배진우) 참석 예정입니다.\n2. 미팅 전 준비 요청:\n   a) Kobe Steel 소재 사용 시 상세 일정표\n   b) Recovery plan with acceleration options (추가 shift, weekend 작업 등)\n   c) LD risk에 대한 귀사의 공식 입장\n\nPMO 배진우 매니저에게 schedule impact analysis를 요청해 놓았습니다. 시공팀 한상우 매니저도 참조에 넣어 현장 공정 영향을 사전에 파악하도록 하겠습니다.\n\n심각한 사안이므로 경영진 보고도 병행할 예정입니다.\n\n최민수 / Procurement Manager",
+    "attachments": [],
+    "category": "자재지연"
+  },
+  {
+    "id": "EMAIL-009",
+    "subject": "[PRJ-2026-001] Piping Material 긴급 발주 요청 - Alloy Steel Pipe (P91)",
+    "from": { "name": "이준혁", "email": "jh.lee@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "정하은", "email": "he.jeong@doosan.com", "org": "두산에너빌리티" },
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-25T09:00:00+03:00",
+    "thread_id": "THD-006",
+    "body": "최민수 팀장님,\n\nHDS Reactor 주변 고온/고압 배관에 사용되는 P91 (ASTM A335 Gr.P91) material의 긴급 추가 발주가 필요합니다.\n\n[배경]\nDetailed design 진행 과정에서 아래 사유로 추가 물량이 발생했습니다:\n- Stress analysis 결과 일부 구간의 pipe wall thickness 증가 필요 (Schedule 80 → Schedule 120)\n- Expansion loop 2개소 추가 설치 필요\n- 기존 MTO에서 waste factor 과소 반영 (5% → 12% 필요)\n\n[추가 소요량]\n- 10\" Sch.120 P91 Pipe: 120M\n- 8\" Sch.120 P91 Pipe: 85M\n- 관련 Fittings (Elbow, Tee, Reducer): 별첨 MTO 참조\n\n[긴급 사유]\nP91 material은 일반적으로 lead time이 16~20주입니다. 현장 배관 설치 착수 예정일(2026-06-15)을 고려하면, 이번 주 내로 PO 발행이 필요합니다.\n\n포스코 및 해외 mill 2~3곳에 동시 견적 요청을 부탁드립니다. Expediting이 가능한 vendor를 우선 검토해 주세요.\n\n이준혁 / Piping Design Lead",
+    "attachments": [
+      { "name": "Additional_MTO_P91_Piping.xlsx", "type": "xlsx" },
+      { "name": "Stress_Analysis_Summary_HDS.pdf", "type": "pdf" }
+    ],
+    "category": "자재지연"
+  },
+  {
+    "id": "EMAIL-010",
+    "subject": "[PRJ-2026-001] Boiler Drum B-4101 제작 현황 및 자재 입고 확인",
+    "from": { "name": "서영호", "email": "yh.seo@doosanheavy.com", "org": "두산중공업" },
+    "to": [{ "name": "정하은", "email": "he.jeong@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" },
+      { "name": "강민정", "email": "mj.kang@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-02-27T14:00:00+09:00",
+    "thread_id": "THD-007",
+    "body": "정하은 엔지니어님,\n\nPO-2026-0031 관련 Boiler Drum B-4101 제작 현황을 아래와 같이 보고드립니다.\n\n[제작 진행 현황]\n- 주요 자재 입고: SA-516 Gr.70 Plate (두께 120mm) - 2026-02-20 입고 완료 ✓\n- Shell rolling: 2026-03-05 착수 예정\n- Head forming: 2026-03-12 착수 예정\n- Welding (SAW): 2026-03-25 ~ 2026-04-15\n- PWHT: 2026-04-20 ~ 2026-04-25\n- Hydrostatic test: 2026-04-28\n- 최종 출하 예정: 2026-05-10 (계약 납기 준수)\n\n[확인 필요 사항]\n1. NDE (비파괴검사) scope 확인: 귀사 QC팀에서 RT (Radiographic Test) 100% 요구가 있었는데, 기존 ITP에는 RT 10% + UT 100%로 되어 있습니다. 어느 쪽을 따라야 하는지 확인 부탁드립니다.\n\n2. 3자 검사(TPI) 일정: 사우디 아람코 지정 TPI inspector의 방문 일정을 확정해 주시면 저희 제작 일정에 반영하겠습니다.\n\n3. Name plate 정보: 아직 final data sheet를 수령하지 못했습니다. Name plate engraving을 위해 3월 10일까지는 최종본이 필요합니다.\n\n서영호 / Project Engineer\n두산중공업 보일러사업부",
+    "attachments": [
+      { "name": "B-4101_Manufacturing_Progress_Report.pdf", "type": "pdf" },
+      { "name": "Material_Test_Certificate_SA516Gr70.pdf", "type": "pdf" }
+    ],
+    "category": "자재지연"
+  },
+  {
+    "id": "EMAIL-011",
+    "subject": "[PRJ-2026-001] Structural Steel Delivery Schedule Update - Phase 2",
+    "from": { "name": "나경태", "email": "kt.na@posco.com", "org": "포스코" },
+    "to": [{ "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+      { "name": "정하은", "email": "he.jeong@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-01T10:00:00+09:00",
+    "thread_id": "THD-008",
+    "body": "최민수 팀장님,\n\nPhase 2 구조물 (Pipe Rack PR-03 ~ PR-07, Equipment Platform EP-CDU-01 ~ 03) 납품 일정을 아래와 같이 update합니다.\n\n[납품 일정]\n- Lot 1 (PR-03, PR-04): 2026-04-05 출하 → 4/20 현장 도착 (계획 대비 on-track)\n- Lot 2 (PR-05, PR-06, PR-07): 2026-04-25 출하 → 5/10 현장 도착 (1주 지연)\n- Lot 3 (EP-CDU-01~03): 2026-05-15 출하 → 5/30 현장 도착 (on-track)\n\nLot 2의 1주 지연 사유는 PR-06의 connection detail 변경에 따른 재작업입니다. 설계팀에서 전달받은 Rev.F 도면 기준으로 bolt hole 위치가 변경되어 fabrication 재작업이 발생했습니다.\n\n참고로, VDU Section의 line size 변경 건(8\"→10\") 관련하여 structural loading re-check 요청을 대기 중입니다. 해당 데이터를 3월 7일까지 보내주시면 일정에 반영 가능합니다.\n\n나경태 / Structural Steel Supply Manager\n포스코",
+    "attachments": [
+      { "name": "Phase2_Delivery_Schedule_Rev2.xlsx", "type": "xlsx" },
+      { "name": "PR-06_Rework_Photos.pdf", "type": "pdf" }
+    ],
+    "category": "자재지연"
+  },
+  {
+    "id": "EMAIL-012",
+    "subject": "[PRJ-2026-001] Valve 납품 현황 - MR-VAL-2026-045 외 3건",
+    "from": { "name": "정하은", "email": "he.jeong@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [{ "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }],
+    "date": "2026-03-03T11:30:00+03:00",
+    "thread_id": "THD-009",
+    "body": "최민수 팀장님,\n\n현재 진행 중인 Valve 발주 건들의 납품 현황을 보고드립니다.\n\n1. MR-VAL-2026-045 (Gate Valves, 150# ~ 600#): Fisher Controls\n   - PO 발행일: 2026-01-15\n   - 예상 납기: 2026-04-30 → 정상 진행 중 ✓\n\n2. MR-VAL-2026-046 (Control Valves - CDU Section): Emerson\n   - PO 발행일: 2026-01-20\n   - 예상 납기: 2026-05-15 → 2주 지연 가능성 (actuator sizing issue)\n   - Emerson 측에서 actuator thrust calculation 재검토 중. 이번 주 내 결과 통보 예정\n\n3. MR-VAL-2026-047 (Safety Relief Valves - HDS): Consolidated\n   - PO 발행일: 2026-02-01\n   - 예상 납기: 2026-06-01 → 정상 진행 중 ✓\n\n4. MR-VAL-2026-048 (Butterfly Valves - Utility): KSB\n   - PO 발행일: 2026-02-10\n   - 예상 납기: 2026-04-15 → 정상 진행 중 ✓\n\n2번 항목의 Control Valve 지연은 CDU commissioning schedule에 영향을 줄 수 있으므로, Emerson과의 weekly call을 제안합니다. 현장 한상우 매니저님도 설치 일정 확인 부탁드립니다.\n\n정하은 / Procurement Engineer",
+    "attachments": [
+      { "name": "Valve_Procurement_Status_202603.xlsx", "type": "xlsx" }
+    ],
+    "category": "자재지연"
+  },
+  {
+    "id": "EMAIL-013",
+    "subject": "[PRJ-2026-001] 3월 공정 진척 현황 보고 및 지연 공종 대책",
+    "from": { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" },
+      { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" },
+      { "name": "송지훈", "email": "jh.song@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-05T15:00:00+03:00",
+    "thread_id": "THD-010",
+    "body": "김태영 PD님,\n\n3월 1주차 기준 현장 공정 진척 현황을 보고드립니다.\n\n[전체 진척률]\n- 계획: 28.5%\n- 실적: 26.1%\n- Gap: -2.4%p (지난달 대비 0.8%p 확대)\n\n[주요 지연 공종]\n1. Civil/Foundation (Area 3 - HDS Unit)\n   - 계획 대비 3주 지연\n   - 원인: 2월 중순 사막 폭풍으로 5일간 작업 중단 + 토양 지지력 부족으로 pile 추가 시공\n   - 대책: 야간 작업조 투입 (3/10부터, 추가 인력 30명)\n\n2. Structural Steel Erection (Area 1 - CDU)\n   - 계획 대비 1주 지연\n   - 원인: 크레인 장비 가용성 부족 (500T crawler crane 2대 중 1대 정비 중)\n   - 대책: 3/8 정비 완료 예정. 300T mobile crane 1대 임시 투입\n\n3. Underground Piping (Utility Area)\n   - 계획 대비 2주 지연\n   - 원인: 기존 매설물(abandoned cable duct) 발견으로 routing 변경\n   - 대책: 변경 routing 확정 완료, 이번 주부터 catch-up 공사 시작\n\n[Recovery Plan]\n첨부된 4주 look-ahead schedule을 참조해 주십시오. 야간 작업 및 추가 장비 투입으로 4월 말까지 gap을 1.0%p 이내로 줄이는 것을 목표로 하고 있습니다.\n\n다만, Compressor C-3101 납기 지연(8주) 건이 해결되지 않으면 HDS Unit 전체 공정이 밀릴 수 있어 별도 대책이 필요합니다.\n\nHSE팀 송지훈 매니저, 야간 작업 관련 추가 안전 대책 수립 부탁드립니다.\n\n한상우 / Construction Manager",
+    "attachments": [
+      { "name": "Monthly_Progress_Report_Mar2026.pdf", "type": "pdf" },
+      { "name": "4Week_Lookahead_Schedule_W10.xlsx", "type": "xlsx" },
+      { "name": "S-Curve_Comparison.pdf", "type": "pdf" }
+    ],
+    "category": "시공일정"
+  },
+  {
+    "id": "EMAIL-014",
+    "subject": "[PRJ-2026-001] Foundation Work Priority Change - Area 3 to Area 2",
+    "from": { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" },
+      { "name": "송지훈", "email": "jh.song@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-07T08:00:00+03:00",
+    "thread_id": "THD-011",
+    "body": "한상우 매니저님,\n\nC-3101 compressor 납기 지연 건을 고려하여, 현장 시공 우선순위 변경을 제안합니다.\n\n[현재 우선순위]\n1순위: Area 3 (HDS Unit) Foundation → Equipment Setting\n2순위: Area 2 (VDU Unit) Foundation\n3순위: Area 4 (Utility)\n\n[변경 제안]\n1순위: Area 2 (VDU Unit) Foundation → Equipment Setting\n2순위: Area 4 (Utility) Underground Piping\n3순위: Area 3 (HDS Unit) Foundation (C-3101 납기 확정 후 equipment setting 일정 조정)\n\n[사유]\nHDS Unit의 장비 설치가 7월 이후로 밀릴 경우, foundation을 지금 서둘러 완료해도 equipment가 없어서 다음 공종 진행이 불가합니다. 오히려 VDU Unit을 먼저 진행하면 CDU와 VDU의 tie-in을 앞당길 수 있어 전체 critical path에 유리합니다.\n\n다만 이 변경 시 인력 재배치 계획이 필요합니다:\n- 현재 Area 3 배치 인력 85명 중 50명을 Area 2로 이동\n- Area 4 underground 작업에 35명 배치\n\nPMO 배진우 매니저님의 schedule simulation 결과를 반영하여 최종 결정 부탁드립니다.\n\n윤서진 / Site Superintendent",
+    "attachments": [
+      { "name": "Priority_Change_Proposal.pdf", "type": "pdf" },
+      { "name": "Manpower_Reallocation_Plan.xlsx", "type": "xlsx" }
+    ],
+    "category": "시공일정"
+  },
+  {
+    "id": "EMAIL-015",
+    "subject": "[PRJ-2026-001] Tank Farm Area 공사 진행 현황",
+    "from": { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "강민정", "email": "mj.kang@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-10T09:30:00+03:00",
+    "thread_id": "THD-012",
+    "body": "한상우 매니저님,\n\nTank Farm Area 공사 진행 현황 보고드립니다.\n\n[Storage Tank 현황]\n- T-5001 (Crude Oil Storage, 50,000 BBL): Bottom plate welding 완료, Shell plate 1st course 진행 중 (70%)\n- T-5002 (Crude Oil Storage, 50,000 BBL): Foundation ring wall 완료, bottom plate 준비 중\n- T-5003 (Naphtha Storage, 20,000 BBL): Foundation work 진행 중 (40%)\n- T-5004 (Diesel Storage, 30,000 BBL): Foundation work 미착수 (Area 3 인력 이동 후 착수 예정)\n\n[이슈 사항]\n1. T-5001 shell plate welding 품질: QC팀에서 1st course의 vertical seam weld 3개소에 대해 UT 검사 결과 불합격 판정이 나왔습니다. 재용접 후 재검사 필요합니다.\n\n2. T-5003 foundation 지반 문제: 지반 조사 시 확인되지 않았던 soft spot이 발견되어 추가 soil improvement 작업이 필요합니다. 약 10일 추가 소요 예상.\n\n3. Tank erection 용 wind girder 자재가 아직 현장에 도착하지 않았습니다. 조달팀 확인 부탁드립니다.\n\nQC팀 강민정 매니저님, T-5001 재검사 일정을 조율해 주시면 감사하겠습니다.\n\n윤서진 / Site Superintendent",
+    "attachments": [
+      { "name": "Tank_Farm_Progress_Photos.pdf", "type": "pdf" },
+      { "name": "Tank_Construction_Status.xlsx", "type": "xlsx" }
+    ],
+    "category": "시공일정"
+  },
+  {
+    "id": "EMAIL-016",
+    "subject": "[PRJ-2026-001] Concrete Pouring Schedule - CDU Compressor Foundation",
+    "from": { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+    "to": [
+      { "name": "강민정", "email": "mj.kang@doosan.com", "org": "두산에너빌리티" },
+      { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "cc": [
+      { "name": "송지훈", "email": "jh.song@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-12T07:00:00+03:00",
+    "thread_id": "THD-013",
+    "body": "강민정 매니저님, 윤서진 수퍼님,\n\nCDU Area Compressor Foundation (FDN-C-1101) 매스 콘크리트 타설 일정을 아래와 같이 확정합니다.\n\n[타설 계획]\n- 일시: 2026-03-18 (수) 04:00 AM (새벽 저온 시간대 활용)\n- 물량: 약 180 m³\n- 타설 방법: Pump car 2대 동시 투입\n- Concrete grade: C40 (고강도, 내황산 시멘트 사용)\n- 예상 소요 시간: 6시간 (연속 타설)\n\n[QC 확인 요청사항]\n1. Rebar inspection (ITP Hold Point): 타설 2일 전(3/16)까지 완료 필요\n2. Formwork 치수 검사\n3. Concrete batch plant 사전 검사 (슬럼프, 공기량, 배합비 확인)\n4. Cube specimen 채취 계획\n\n[HSE 관련]\n- 새벽 작업이므로 조명 설비 사전 설치 필요\n- Concrete pump 작업 반경 내 출입 통제 구역 설정\n- 송지훈 매니저님, 새벽 작업 PTW (Permit to Work) 발행 부탁드립니다.\n\n기상 예보 확인 중이며, 강우 예보 시 1일 연기될 수 있습니다.\n\n한상우 / Construction Manager",
+    "attachments": [
+      { "name": "FDN-C-1101_Pour_Plan.pdf", "type": "pdf" },
+      { "name": "Concrete_Mix_Design_C40.pdf", "type": "pdf" }
+    ],
+    "category": "시공일정"
+  },
+  {
+    "id": "EMAIL-017",
+    "subject": "[PRJ-2026-001] Client 공정 지연 관련 Warning Letter 수신",
+    "from": { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+    "to": [
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+      { "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" },
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "cc": [
+      { "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" },
+      { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-08T18:00:00+03:00",
+    "thread_id": "THD-014",
+    "body": "팀장/매니저 여러분,\n\n오늘 Saudi Aramco로부터 공식 Warning Letter (REF: SAP-AJR-2026-WL-003)를 수신했습니다.\n\n주요 내용은 아래와 같습니다:\n\n1. Overall progress gap (-2.4%p)에 대한 심각한 우려 표명\n2. 3월 말까지 Recovery Plan 제출 요구 (30일 이내)\n3. Recovery Plan 미제출 또는 4월 말까지 gap이 -3.0%p 이상으로 확대될 경우, LD 적용 절차 개시 예정 통보\n4. 주간 단위 Progress Meeting을 격주에서 매주로 변경 요구\n\n이는 매우 심각한 상황입니다. 아래와 같이 대응하겠습니다:\n\n[즉시 조치사항]\n1. 배진우 매니저: 전체 Recovery Plan 수립 (3/15까지 초안 완성)\n2. 한상우 매니저: 현장 acceleration 방안 (인력 추가 투입, 장비 증원 등) 구체화\n3. 최민수 팀장: C-3101 납기 지연 건 포함 모든 procurement critical item의 expediting 강화\n4. 박설계 리드: 잔여 설계 deliverable의 fast-track 발행 일정표 작성\n\n내일(3/9) 09:00 긴급 경영진 보고 미팅을 소집합니다. 전원 참석 필수입니다.\n\nWarning letter 원본은 첨부를 참조해 주십시오.\n\n김태영 / Project Director",
+    "attachments": [
+      { "name": "SAP-AJR-2026-WL-003_Warning_Letter.pdf", "type": "pdf" }
+    ],
+    "category": "시공일정"
+  },
+  {
+    "id": "EMAIL-018",
+    "subject": "[PRJ-2026-001] NDT Report - Piping Spool PS-CDU-1201 ~ 1215",
+    "from": { "name": "오재현", "email": "jh.oh@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "강민정", "email": "mj.kang@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "이준혁", "email": "jh.lee@doosan.com", "org": "두산에너빌리티" },
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-04T16:00:00+03:00",
+    "thread_id": "THD-015",
+    "body": "강민정 매니저님,\n\nCDU Area piping spool PS-CDU-1201 ~ 1215에 대한 NDT(비파괴검사) 결과를 보고드립니다.\n\n[검사 결과 요약]\n- 총 검사 용접부: 87개소\n- RT (방사선 검사): 87개소 실시\n  - 합격: 79개소\n  - 불합격: 8개소 (불합격률 9.2%)\n- 불합격 유형:\n  - Porosity (기공): 3개소 (PS-CDU-1203, 1207, 1209)\n  - Incomplete penetration (용입 불량): 3개소 (PS-CDU-1205, 1210, 1211)\n  - Slag inclusion (슬래그 혼입): 2개소 (PS-CDU-1208, 1214)\n\n[불합격률 분석]\n현재 불합격률 9.2%는 프로젝트 KPI 목표치(5% 이하)를 크게 초과하고 있습니다. 특히 PS-CDU-1205와 PS-CDU-1210은 동일 용접사(W-015)의 작업으로, 해당 용접사의 skill qualification 재확인이 필요합니다.\n\n[권고사항]\n1. 불합격 8개소: 즉시 repair welding 후 re-inspection 실시\n2. 용접사 W-015: 추가 qualification test 실시 또는 교체 검토\n3. CDU Area 전체 용접에 대해 RT 검사 비율을 현재 random 10%에서 25%로 상향 검토\n4. 이준혁 리드님, WPS (Welding Procedure Specification) 및 welder performance 검토 부탁드립니다.\n\n상세 NDT report는 첨부파일을 참조해 주십시오.\n\n오재현 / QC Inspector",
+    "attachments": [
+      { "name": "NDT_Report_PS-CDU-1201_1215.pdf", "type": "pdf" },
+      { "name": "RT_Film_Interpretation_Summary.xlsx", "type": "xlsx" }
+    ],
+    "category": "품질이슈"
+  },
+  {
+    "id": "EMAIL-019",
+    "subject": "[PRJ-2026-001] Vendor Inspection Report - HD현대 Pump Package P-1201A/B",
+    "from": { "name": "강민정", "email": "mj.kang@doosan.com", "org": "두산에너빌리티" },
+    "to": [
+      { "name": "장원철", "email": "wc.jang@hd-hyundai.com", "org": "HD현대중공업" },
+      { "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "cc": [
+      { "name": "정하은", "email": "he.jeong@doosan.com", "org": "두산에너빌리티" },
+      { "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" }
+    ],
+    "date": "2026-03-06T17:30:00+09:00",
+    "thread_id": "THD-016",
+    "body": "장원철 매니저님,\n\n3/5~3/6 양일간 울산 공장에서 실시한 CDU Reflux Pump P-1201A/B에 대한 vendor inspection 결과를 통보합니다.\n\n[검사 결과: CONDITIONALLY ACCEPTED (조건부 합격)]\n\n합격 항목:\n- Dimensional check: 합격 ✓\n- Material certificate verification: 합격 ✓\n- Hydrostatic test: 합격 (test pressure 45 barg, holding 30 min, no leak) ✓\n\n불합격/보류 항목:\n1. Performance test 결과 - P-1201A:\n   - Required head: 125m → Achieved: 121m (96.8%, spec 요구 최소 97%에 미달)\n   - Vibration level: 2.8 mm/s (허용치 2.5 mm/s 초과)\n   → Impeller trimming 재조정 후 re-test 필요\n\n2. Paint/coating inspection:\n   - Base plate 하부 DFT (Dry Film Thickness)가 spec 대비 부족 (측정값: 180μm, 요구: 250μm)\n   → Touch-up painting 후 재검사 필요\n\n[조치 요청]\n1. P-1201A impeller 재조정 후 2주 이내 re-test 일정 회신\n2. Coating touch-up 완료 확인 사진 제출\n3. Saudi Aramco TPI inspector (Mr. Al-Rashid 참조)의 최종 검사를 위한 witness test 일정 조율\n\nRe-test 결과가 확인되기 전까지는 출하 승인을 보류합니다.\n\n강민정 / QC Manager",
+    "attachments": [
+      { "name": "Vendor_Inspection_Report_P1201AB.pdf", "type": "pdf" },
+      { "name": "Performance_Test_Data_P1201A.xlsx", "type": "xlsx" },
+      { "name": "Coating_Inspection_Photos.pdf", "type": "pdf" }
+    ],
+    "category": "품질이슈"
+  },
+  {
+    "id": "EMAIL-020",
+    "subject": "[PRJ-2026-001] Concrete Cube Test 결과 - FDN-V-2301 불합격 통보",
+    "from": { "name": "오재현", "email": "jh.oh@doosan.com", "org": "두산에너빌리티" },
+    "to": [
+      { "name": "강민정", "email": "mj.kang@doosan.com", "org": "두산에너빌리티" },
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "cc": [
+      { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-11T10:00:00+03:00",
+    "thread_id": "THD-017",
+    "body": "강민정 매니저님, 한상우 매니저님,\n\nVDU Vacuum Column Foundation (FDN-V-2301)에 대한 28일 concrete cube test 결과를 보고드립니다.\n\n[결과: 불합격]\n- 설계 강도: C35 (fck = 35 MPa)\n- 28일 시험 결과:\n  - Cube 1: 31.2 MPa\n  - Cube 2: 29.8 MPa\n  - Cube 3: 32.1 MPa\n  - 평균: 31.0 MPa (설계 강도의 88.6%)\n\n설계 강도 대비 약 11% 부족으로, ACI 318 기준에 따른 합격 기준(평균 fck 이상, 개별값 fck-3.5 이상)을 만족하지 못합니다.\n\n[추정 원인]\n- 타설 당일(2/10) 현장 기온이 48°C까지 상승하여 콘크리트 수화 반응에 영향\n- 양생 중 curing compound 도포가 부분적으로 미흡했던 것으로 추정\n\n[권고 조치]\n1. 해당 foundation에 대한 core sampling test (비파괴 강도시험) 실시 → 실제 구조체 강도 확인\n2. Core test 결과에 따라 아래 중 하나를 결정해야 합니다:\n   a) 구조 계산 재검토를 통해 현재 강도로 안전성 확인\n   b) 보강 공사 (carbon fiber wrap, grouting 등)\n   c) 철거 후 재시공 (최악의 경우)\n\n구조팀의 검토가 시급합니다. 이 결과에 따라 VDU Column 설치 일정에 영향이 있을 수 있습니다.\n\n오재현 / QC Inspector",
+    "attachments": [
+      { "name": "Cube_Test_Report_FDN-V-2301.pdf", "type": "pdf" },
+      { "name": "Curing_Temperature_Log.xlsx", "type": "xlsx" }
+    ],
+    "category": "품질이슈"
+  },
+  {
+    "id": "EMAIL-021",
+    "subject": "[PRJ-2026-001] Welding Procedure Re-qualification 결과 통보",
+    "from": { "name": "강민정", "email": "mj.kang@doosan.com", "org": "두산에너빌리티" },
+    "to": [
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+      { "name": "이준혁", "email": "jh.lee@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "cc": [
+      { "name": "오재현", "email": "jh.oh@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-14T14:00:00+03:00",
+    "thread_id": "THD-018",
+    "body": "한상우 매니저님, 이준혁 리드님,\n\nNDT 불합격률 관련 후속 조치로 시행한 welding procedure 및 welder re-qualification 결과를 보고드립니다.\n\n[Welder Re-qualification 결과]\n- W-015 (김용접): 6G position 재시험 → 불합격 (bend test 시 crack 발생)\n  → 해당 용접사 즉시 작업 투입 중지. 재교육 후 2주 후 재시험 예정\n  → W-015가 기 시공한 용접부 중 미검사분 전수 NDT 실시 필요\n\n- W-022 (이용접): 재시험 합격 ✓\n- W-031 (박용접): 재시험 합격 ✓\n\n[WPS 검토 결과]\n- WPS-CS-001 (Carbon Steel Butt Weld): 적정 ✓\n- WPS-AS-003 (Alloy Steel P91 Weld): PWHT holding time을 2시간에서 4시간으로 변경 필요\n  → P91 배관 용접 시작 전 revised WPS 승인 필수\n\n[조치 필요사항]\n1. W-015 기 시공 용접부(추정 23개소) 전수 NDT 검사 시행 → 시공팀 일정 조율 필요\n2. 대체 용접사 즉시 투입 (현재 가용 인원: W-045, W-048)\n3. P91 WPS 변경 건: Client 승인 필요 (ASME Sec.IX 기준)\n\n시공 일정에 영향이 있을 수 있으니, 우선순위 조정을 부탁드립니다.\n\n강민정 / QC Manager",
+    "attachments": [
+      { "name": "Welder_Requalification_Report.pdf", "type": "pdf" },
+      { "name": "WPS-AS-003_Revision_Draft.pdf", "type": "pdf" }
+    ],
+    "category": "품질이슈"
+  },
+  {
+    "id": "EMAIL-022",
+    "subject": "[PRJ-2026-001] INCIDENT REPORT: 고소작업 추락 사고 (Area 1)",
+    "from": { "name": "송지훈", "email": "jh.song@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+      { "name": "임수빈", "email": "sb.lim@doosan.com", "org": "두산에너빌리티" },
+      { "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" }
+    ],
+    "date": "2026-03-09T07:30:00+03:00",
+    "thread_id": "THD-019",
+    "body": "김태영 PD님,\n\n금일 06:45경 Area 1 (CDU Section) pipe rack 구조물 설치 작업 중 고소작업 추락 사고가 발생하여 긴급 보고드립니다.\n\n[사고 개요]\n- 일시: 2026-03-09, 06:45 AM (현지시간)\n- 장소: Area 1, Pipe Rack PR-02, Elevation +12m\n- 피해자: 하청업체 (Al-Madina Construction) 소속 철골공 Mohammed Hassan (34세)\n- 상해: 왼쪽 팔 골절 (closed fracture), 찰과상 다수\n- 현재 상태: Al-Jubail General Hospital 이송 완료, 의식 있음, 생명에 지장 없음\n\n[사고 경위]\n- PR-02 2층 steel beam (H-400x400) 설치 작업 중 안전 난간이 미설치된 구간에서 작업\n- 작업자가 bolt tightening 중 balance를 잃고 약 4m 높이에서 추락\n- 안전대(harness)를 착용하고 있었으나, anchor point에 연결하지 않은 상태\n\n[즉시 조치사항 - 완료]\n1. 사고 현장 작업 즉시 중지 ✓\n2. 피해자 응급 처치 및 병원 이송 ✓\n3. 사고 현장 보존 및 사진 촬영 ✓\n4. 사우디 노동부 사고 신고 (8시간 이내 의무) ✓\n\n[후속 조치 - 필요]\n1. 사고 조사팀 구성 (24시간 이내)\n2. Area 1 전체 고소작업에 대한 안전 점검 실시\n3. 전 현장 Safety Stand-down 실시 (반일, 3/10 오전)\n4. Saudi Aramco 측 Incident Report 제출 (48시간 이내)\n5. 하청업체 안전관리 실태 점검\n\n사우디 아람코의 안전 기준상 LTI (Lost Time Injury) 1건이 기록되며, 이에 따른 client 측 audit가 예상됩니다.\n\n임수빈 Safety Officer가 현장에서 사고 조사를 진행 중입니다. 상세 보고서는 24시간 이내에 제출하겠습니다.\n\n송지훈 / HSE Manager",
+    "attachments": [
+      { "name": "Incident_Report_20260309_Initial.pdf", "type": "pdf" },
+      { "name": "Incident_Photos_Area1.pdf", "type": "pdf" }
+    ],
+    "category": "안전"
+  },
+  {
+    "id": "EMAIL-023",
+    "subject": "[PRJ-2026-001] Safety Stand-Down 실시 결과 및 시정 조치 계획",
+    "from": { "name": "임수빈", "email": "sb.lim@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "송지훈", "email": "jh.song@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+      { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-11T16:00:00+03:00",
+    "thread_id": "THD-019",
+    "body": "송지훈 매니저님,\n\n3/10 오전에 실시한 Safety Stand-Down 결과 및 현장 안전 점검 결과를 보고드립니다.\n\n[Safety Stand-Down 실시 현황]\n- 참석 인원: 총 847명 (자사 직원 123명, 하청 인력 724명)\n- 주요 내용: 3/9 사고 사례 공유, 고소작업 안전 수칙 재교육, 안전대 올바른 착용법 시연\n- 참석률: 98.2% (미참석 15명은 야간 교대조 → 3/11 별도 교육 실시)\n\n[현장 안전 점검 결과]\n전체 현장 walk-through 실시 결과, 아래 시정 필요 사항이 발견되었습니다:\n\n1. Area 1 (CDU): 고소작업 안전난간 미설치 3개소 → 즉시 시정 완료\n2. Area 2 (VDU): scaffold tag (green tag) 만료 2개소 → 사용 금지 조치, 재검사 요청\n3. Area 3 (HDS): 화기작업 소화기 비치 부족 (규정 2대 → 현재 1대) → 추가 배치 완료\n4. Tank Farm: 작업자 PPE 미착용 2건 (safety glasses, gloves) → 경고 조치\n5. Utility Area: 전기 케이블 임시 배선이 통행로를 가로지름 → cable tray 설치 조치 중\n\n[시정 조치 계획]\n1. 주간 안전 순찰(Weekly Safety Patrol)을 일일 순찰로 전환 (3월 중)\n2. 하청업체별 전담 Safety Supervisor 배치 의무화\n3. 고소작업 전 100% TBM (Toolbox Meeting) 실시 확인 체계 강화\n4. 안전 위반 시 3-strike 제도 시행 (3회 위반 시 현장 퇴출)\n\n세부 시행 계획은 첨부된 Corrective Action Plan을 참조해 주십시오.\n\n임수빈 / Safety Officer",
+    "attachments": [
+      { "name": "Safety_StandDown_Report_20260310.pdf", "type": "pdf" },
+      { "name": "Site_Inspection_Findings.xlsx", "type": "xlsx" },
+      { "name": "Corrective_Action_Plan_Rev0.pdf", "type": "pdf" }
+    ],
+    "category": "안전"
+  },
+  {
+    "id": "EMAIL-024",
+    "subject": "[PRJ-2026-001] 야간 작업 Hot Work Permit 발행 요청",
+    "from": { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "송지훈", "email": "jh.song@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+      { "name": "임수빈", "email": "sb.lim@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-13T11:00:00+03:00",
+    "thread_id": "THD-020",
+    "body": "송지훈 매니저님,\n\n공정 지연 만회를 위한 야간 작업 계획에 따라 아래 Hot Work Permit 발행을 요청합니다.\n\n[작업 내용]\n- 작업 구역: Area 1 (CDU Section) - Pipe Rack PR-01, PR-02\n- 작업 종류: Structural steel welding (beam-to-column connection)\n- 작업 기간: 2026-03-15 ~ 2026-03-31 (2주간, 야간 19:00~05:00)\n- 투입 인원: 용접공 12명, 철골공 8명, rigger 4명, 안전관리자 2명\n- 사용 장비: Electric arc welding machine 6대, 500T crawler crane (야간 가동)\n\n[추가 안전 대책]\n- 야간 작업 전용 조명탑 4기 추가 설치 (최소 200 lux 확보)\n- Fire watch 전담 인원 2명 배치 (용접 작업 종료 후 30분간 감시)\n- 야간 작업 전 매일 TBM 실시\n- Crane 야간 작업 시 signal person 추가 배치\n\n3/9 사고 이후 고소작업에 대한 안전 감독이 강화된 만큼, 야간 고소작업에 대해서는 특별 안전 대책서를 별도로 작성하여 제출하겠습니다.\n\n이 작업은 Recovery Plan의 핵심이므로, 가능한 빠른 PTW 발행을 부탁드립니다.\n\n윤서진 / Site Superintendent",
+    "attachments": [
+      { "name": "Night_Work_Plan_Area1.pdf", "type": "pdf" },
+      { "name": "Hot_Work_Permit_Application.pdf", "type": "pdf" }
+    ],
+    "category": "안전"
+  },
+  {
+    "id": "EMAIL-025",
+    "subject": "[PRJ-2026-001] Variation Order Request - VO-2026-008: Additional Piling Work",
+    "from": { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" }],
+    "cc": [
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" },
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-02T10:00:00+03:00",
+    "thread_id": "THD-021",
+    "body": "Dear Mr. Al-Rashid,\n\nWe hereby submit Variation Order Request VO-2026-008 for your review.\n\n[Subject]\nAdditional Piling Work at Area 3 (HDS Unit) due to unforeseen ground conditions\n\n[Background]\nDuring foundation work at Area 3, geotechnical investigation revealed that the actual soil bearing capacity is significantly lower than indicated in the original Geotechnical Report (Doc. No. GEO-AJR-2025-001 Rev.B) provided during the bidding phase.\n\n- Original design basis: Allowable bearing capacity = 200 kPa\n- Actual field condition: 80~120 kPa (measured at -3m to -8m depth)\n\nAs a result, the original spread foundation design is inadequate, and piled foundation with bored piles (dia. 600mm, depth 15m) is required for all major equipment foundations in Area 3.\n\n[Cost Impact]\n- Additional piling work: 48 nos. bored piles\n- Estimated additional cost: $1,850,000\n- Schedule impact: 3 weeks (pile installation + pile cap construction)\n\n[Contractual Basis]\nPer Contract Clause 13.2 (Variation) and Clause 4.12 (Unforeseeable Physical Conditions), we believe this additional work qualifies as a Variation as the ground conditions materially differ from the reference data provided by the Employer.\n\n첨부된 VO Request Form, 상세 견적서, 및 지반 조사 비교 보고서를 검토하시고, 30일 이내에 결정을 회신해 주시기 바랍니다.\n\nBest regards,\nKim Taeyoung / Project Director\nDoosan Enerbility",
+    "attachments": [
+      { "name": "VO-2026-008_Request_Form.pdf", "type": "pdf" },
+      { "name": "VO-2026-008_Cost_Estimate.xlsx", "type": "xlsx" },
+      { "name": "Geotechnical_Comparison_Report.pdf", "type": "pdf" }
+    ],
+    "category": "계약"
+  },
+  {
+    "id": "EMAIL-026",
+    "subject": "[PRJ-2026-001] LD (Liquidated Damages) 적용 가능성 관련 내부 검토",
+    "from": { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" },
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-10T19:00:00+03:00",
+    "thread_id": "THD-022",
+    "body": "김태영 PD님,\n\nClient Warning Letter 수신 건 관련, LD 적용 가능성에 대한 내부 분석 결과를 보고드립니다.\n\n[현재 계약 조건]\n- Mechanical Completion 목표일: 2028-06-30\n- LD rate: $150,000/week (최대 cap: 계약 금액의 10% = $120M)\n- Grace period: MC 목표일로부터 30일\n\n[현재 지연 상황 분석]\n현 시점에서 critical path 분석 결과:\n1. Best case (모든 recovery 성공): MC 지연 없음\n2. Base case (C-3101 4주 지연 반영): MC 3주 지연 → LD $450,000\n3. Worst case (C-3101 8주 지연 + 추가 지연): MC 8주 지연 → LD $1,200,000\n\n[LD 회피/경감 전략]\n1. EOT (Extension of Time) 클레임 근거 확보\n   - 사막 폭풍으로 인한 불가항력 (Force Majeure): 5일 → 기록 보존 중\n   - 지반 조건 상이 (Unforeseen Ground Conditions): VO-2026-008로 3주 EOT 청구 가능\n   - Client Review 지연: CDR/DDR comments 회신 지연 건 누적 12일\n\n2. Concurrent delay 주장\n   - Client 제공 data (geotechnical report)의 부정확성으로 인한 지연\n   - Client approval delay (DCN-026-015 등)\n\n3. Recovery Plan을 통한 실질적 catch-up\n\n[권고사항]\n1. 모든 delay event에 대한 notice letter를 계약 조건에 따라 즉시 발행 (28일 이내 통보 의무)\n2. 법무팀/계약팀과 EOT 클레임 패키지 사전 준비\n3. Client와의 관계 관리: 대립적 접근보다는 Recovery Plan 기반 협력적 접근 권고\n\n상세 분석 자료는 첨부를 참조해 주십시오.\n\n배진우 / Planning & Scheduling Manager",
+    "attachments": [
+      { "name": "LD_Risk_Analysis_20260310.pdf", "type": "pdf" },
+      { "name": "Critical_Path_Analysis_Scenarios.xlsx", "type": "xlsx" },
+      { "name": "EOT_Claim_Basis_Summary.pdf", "type": "pdf" }
+    ],
+    "category": "계약"
+  },
+  {
+    "id": "EMAIL-027",
+    "subject": "RE: [PRJ-2026-001] Variation Order Request - VO-2026-008: Additional Piling Work",
+    "from": { "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" },
+    "to": [{ "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "Mohammed Al-Harbi", "email": "m.alharbi@aramco.com", "org": "Saudi Aramco" },
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-15T14:00:00+03:00",
+    "thread_id": "THD-021",
+    "body": "Dear Mr. Kim,\n\nWe acknowledge receipt of VO-2026-008 regarding additional piling work at Area 3.\n\nOur preliminary review indicates the following:\n\n1. We accept in principle that the ground conditions differ from the original geotechnical report. However, we note that Clause 4.12 requires the Contractor to have conducted its own site investigation during the tender period.\n\n2. Regarding the cost estimate of $1,850,000, we require a detailed breakdown with unit rates benchmarked against similar projects. The current lump sum presentation is insufficient for our approval process.\n\n3. The 3-week schedule extension request will be evaluated separately under the EOT provisions. Please submit a formal EOT application under Clause 8.4 with detailed programme analysis.\n\n4. We request a joint geotechnical review meeting with both parties' geotechnical consultants before final determination. Please propose suitable dates within the next 2 weeks.\n\n당사 Contract Administration 팀에서 상세 검토 후 공식 회신을 30일 이내에 드리겠습니다.\n\nRegards,\nAhmed Al-Rashid\nProject Manager, Saudi Aramco",
+    "attachments": [],
+    "category": "계약"
+  },
+  {
+    "id": "EMAIL-028",
+    "subject": "[PRJ-2026-001] Weekly Progress Meeting 회의록 - Week 10",
+    "from": { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" },
+    "to": [
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+      { "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" }
+    ],
+    "cc": [
+      { "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" },
+      { "name": "최민수", "email": "ms.choi@doosan.com", "org": "두산에너빌리티" },
+      { "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" },
+      { "name": "강민정", "email": "mj.kang@doosan.com", "org": "두산에너빌리티" },
+      { "name": "송지훈", "email": "jh.song@doosan.com", "org": "두산에너빌리티" },
+      { "name": "Mohammed Al-Harbi", "email": "m.alharbi@aramco.com", "org": "Saudi Aramco" }
+    ],
+    "date": "2026-03-13T17:00:00+03:00",
+    "thread_id": "THD-023",
+    "body": "All,\n\nWeek 10 (3/9 ~ 3/13) Weekly Progress Meeting 회의록을 공유합니다.\n\n[참석자]\n- Doosan: 김태영, 박설계, 최민수, 한상우, 강민정, 송지훈, 배진우\n- Aramco: Ahmed Al-Rashid, Mohammed Al-Harbi\n\n[Agenda & Key Decisions]\n\n1. Progress Update\n   - Overall: 계획 28.5% vs 실적 26.1% (gap -2.4%p)\n   - Engineering: 78% complete (on-track)\n   - Procurement: 52% complete (-3%p behind)\n   - Construction: 15% complete (-4%p behind)\n\n2. C-3101 Compressor Delay\n   - HD현대중공업과 2/23 미팅 결과 공유: Kobe Steel 소재 사용 시 4주 단축 가능 (최종 납기 6/12)\n   - Aramco 측: 납기 지연에 따른 LD risk에 대해 우려 표명\n   - Action: 최민수 팀장이 HD현대와 expediting agreement 체결 추진 (3/20까지)\n\n3. Safety Incident (3/9 추락 사고)\n   - 사고 조사 보고서 3/16까지 제출 예정\n   - Aramco 측 Safety Audit 3/20 예정\n   - Action: 송지훈 매니저가 Corrective Action Plan 3/17까지 최종 제출\n\n4. Quality Issues\n   - NDT 불합격률 9.2% → 목표 5% 이하\n   - Welder W-015 disqualification 후 대체 인력 투입 완료\n   - Action: 강민정 매니저가 enhanced inspection plan 제출 (3/18까지)\n\n5. Concrete Cube Test 불합격 (FDN-V-2301)\n   - Core sampling test 3/17 실시 예정\n   - 결과에 따라 보강 공사 또는 재시공 결정\n   - Action: 한상우 매니저가 contingency plan 수립 (3/20까지)\n\n[Next Meeting]\n- 일시: 2026-03-20 (목) 14:00 (Riyadh Time)\n- 장소: Site Office, Meeting Room A\n\n배진우 / Planning & Scheduling Manager",
+    "attachments": [
+      { "name": "MOM_Week10_20260313.pdf", "type": "pdf" },
+      { "name": "Weekly_Progress_Dashboard_W10.xlsx", "type": "xlsx" }
+    ],
+    "category": "일반보고"
+  },
+  {
+    "id": "EMAIL-029",
+    "subject": "[PRJ-2026-001] 3월 2주차 인력 투입 현황 및 증원 요청",
+    "from": { "name": "윤서진", "email": "sj.yoon@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "한상우", "email": "sw.han@doosan.com", "org": "두산에너빌리티" }],
+    "cc": [
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-14T08:00:00+03:00",
+    "thread_id": "THD-024",
+    "body": "한상우 매니저님,\n\n3월 2주차 현장 인력 투입 현황 및 증원 요청 사항을 보고드립니다.\n\n[현재 인력 현황] (3/14 기준)\n| 구분 | 계획 | 실투입 | 차이 |\n|------|------|--------|------|\n| 관리 인력 (Doosan) | 125 | 123 | -2 |\n| 하청 - Civil/Structural | 280 | 245 | -35 |\n| 하청 - Piping | 180 | 142 | -38 |\n| 하청 - Electrical | 60 | 55 | -5 |\n| 하청 - Instrumentation | 40 | 32 | -8 |\n| 합계 | 685 | 597 | -88 |\n\n[부족 원인]\n1. Piping 인력: 3월 ramadan 기간(3/1~) 진입으로 현지 노동자 출근율 저하 (약 20%)\n2. Civil/Structural: Al-Madina Construction 사의 인력 추가 투입 지연 (계약 물량 대비 투입 부족)\n3. Instrumentation: 전문 기술 인력 수급 어려움 (사우디 현지 시장 tight)\n\n[증원 요청]\n1. Piping fitter/welder 40명 → 4월 1주차까지 투입 필요\n2. Civil 일반 노무 30명 → 즉시 투입 필요 (야간 작업조용)\n3. Instrument technician 10명 → 3월 말까지 투입 필요\n\nRecovery Plan 실행을 위해서는 최소 위 인력이 확보되어야 합니다. 현재 하청업체 추가 계약 또는 제3의 하청업체 투입이 필요한 상황입니다.\n\n윤서진 / Site Superintendent",
+    "attachments": [
+      { "name": "Manpower_Histogram_Mar_W2.xlsx", "type": "xlsx" },
+      { "name": "Subcontractor_Performance_Report.pdf", "type": "pdf" }
+    ],
+    "category": "일반보고"
+  },
+  {
+    "id": "EMAIL-030",
+    "subject": "[PRJ-2026-001] Monthly Document Transmittal Status - February 2026",
+    "from": { "name": "박설계", "email": "sg.park@doosan.com", "org": "두산에너빌리티" },
+    "to": [{ "name": "Ahmed Al-Rashid", "email": "a.alrashid@aramco.com", "org": "Saudi Aramco" }],
+    "cc": [
+      { "name": "김태영", "email": "ty.kim@doosan.com", "org": "두산에너빌리티" },
+      { "name": "Mohammed Al-Harbi", "email": "m.alharbi@aramco.com", "org": "Saudi Aramco" },
+      { "name": "배진우", "email": "jw.bae@doosan.com", "org": "두산에너빌리티" }
+    ],
+    "date": "2026-03-03T09:00:00+03:00",
+    "thread_id": "THD-025",
+    "body": "Dear Mr. Al-Rashid,\n\n2월 설계 문서 발행(transmittal) 현황을 보고드립니다.\n\n[2월 Document Transmittal Summary]\n- 계획 발행 건수: 45건\n- 실제 발행 건수: 38건 (84.4%)\n- 미발행: 7건\n\n[미발행 문서 상세]\n1. DWG-CDU-ISO-120 ~ 125 (Isometric Drawings, CDU Area): P&ID Rev.E 확정 대기 중 (6건)\n2. DOC-HDS-CALC-015 (HDS Reactor Foundation Calculation): 지반 조건 변경에 따른 재계산 진행 중 (1건)\n\n[Client Review Status]\n현재 Client 측 검토 대기 중인 문서:\n- IFA (Issued for Approval) 상태: 12건 (평균 대기일: 18일)\n- 이 중 contractual review period(21일) 초과 예상: 4건\n\nContractual review period 초과 건에 대해서는 reminder letter를 별도 발행하겠습니다.\n\n[3월 발행 계획]\n- 계획 발행 건수: 52건\n- 주요 IFC (Issued for Construction) 예정: CDU Piping Isometric 30건, Electrical Cable Schedule 5건\n\n설계 진척률은 현재 78%로 전체적으로 on-track이나, HDS Unit 관련 문서는 장비 납기 지연 영향으로 일부 hold 상태입니다.\n\nBest regards,\n박설계 / Lead Process Engineer",
+    "attachments": [
+      { "name": "Document_Transmittal_Status_Feb2026.xlsx", "type": "xlsx" },
+      { "name": "Client_Review_Pending_List.pdf", "type": "pdf" }
+    ],
+    "category": "일반보고"
+  }
+]
