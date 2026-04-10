@@ -1,6 +1,6 @@
 # Demo Showcase
 
-Sionic AI 데모 웹 앱 모음. 고객 미팅이나 팀 내부에서 빠르게 데모 화면을 확인할 수 있도록 GitHub Pages로 호스팅합니다.
+Sionic AI 데모 웹 앱 모음. 쉽게 데모 화면을 확인할 수 있도록 GitHub Pages로 호스팅합니다.
 
 **데모 목록 페이지**: https://wonsj3712.github.io/demo-showcase/
 
