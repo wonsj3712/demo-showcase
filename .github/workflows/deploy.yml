@@ -33,12 +33,14 @@ jobs:
           npm install
           npm run build
 
-      # 배포용 폴더 조합: 루트 index.html + 각 데모의 dist
+      # 배포용 폴더 조합: 루트 index.html + 각 데모
       - name: Assemble site
         run: |
-          mkdir -p _site/epc-demo
+          mkdir -p _site/epc-demo _site/manufacturing-agent-demo
           cp index.html _site/
+          touch _site/.nojekyll
           cp -r epc-demo/dist/* _site/epc-demo/
+          cp -r manufacturing-agent-demo/. _site/manufacturing-agent-demo/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
