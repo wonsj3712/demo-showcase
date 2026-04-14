@@ -2,4 +2,4 @@
 2:I[39756,["/demo-showcase/manufacturing-agent-demo/_next/static/chunks/0fus56enrtg7o.js","/demo-showcase/manufacturing-agent-demo/_next/static/chunks/0xe7gt3~du.d0.js"],"default"]
 3:I[37457,["/demo-showcase/manufacturing-agent-demo/_next/static/chunks/0fus56enrtg7o.js","/demo-showcase/manufacturing-agent-demo/_next/static/chunks/0xe7gt3~du.d0.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"5qCLs1W1bHw6pqaBLfWhG"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"Z8rO9d2BU8Hj-DQuz_LYW"}
