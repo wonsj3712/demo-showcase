@@ -10,7 +10,6 @@ Sionic AI 데모 웹 앱 모음. 쉽게 데모 화면을 확인할 수 있도록
 |------|------|-----|------|
 | EPC Email Issue Management | EPC 프로젝트 이메일 기반 이슈 추적/분류/대시보드 | [바로가기](https://wonsj3712.github.io/demo-showcase/epc-demo/) | `epc-demo/` (이 레포) |
 | Manufacturing Agent Demo | DK산업 제조업 설비 예방보전 AI 데모 (Next.js 정적 export, 목업 모드) | [바로가기](https://wonsj3712.github.io/demo-showcase/manufacturing-agent-demo/) | [wonsj3712/manufacturing-agent-demo](https://github.com/wonsj3712/manufacturing-agent-demo) (Private + Archived) |
-| Floor Plan Compare | 건축도서 PDF 비교 분석: 도면 치수·실명·방구조 변경 검출 (FastAPI + React + Gemini) | [바로가기](https://sjwon-floor-plan-compare.hf.space/) | [wonsj3712/dave-agentic-parsing-floor-plan](https://github.com/wonsj3712/dave-agentic-parsing-floor-plan) (Private) + [HF Space](https://huggingface.co/spaces/sjwon/floor-plan-compare) |
 
 ## 자동 배포
 
@@ -48,5 +47,3 @@ FastAPI·Flask·Next.js SSR처럼 **서버가 필요한** 앱은 GitHub Pages �
 3. 이 README 표에 행 추가. URL은 외부 호스팅, 소스 컬럼에 원본 레포 + 호스팅 링크 병기
 4. 이 레포엔 소스/빌드 결과물을 복사하지 않음. 링크만 유지
 5. master push → 즉시 반영 (별도 빌드 단계 없음)
-
-예시: `Floor Plan Compare` — 소스는 [wonsj3712/dave-agentic-parsing-floor-plan](https://github.com/wonsj3712/dave-agentic-parsing-floor-plan) (Private), 호스팅은 Hugging Face Spaces Docker SDK ([sjwon/floor-plan-compare](https://huggingface.co/spaces/sjwon/floor-plan-compare)). 백엔드(FastAPI + Gemini)와 PDF 업로드 처리 때문에 GitHub Pages로는 못 올리는 구조
