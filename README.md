@@ -10,7 +10,7 @@ Sionic AI 데모 웹 앱 모음. 쉽게 데모 화면을 확인할 수 있도록
 |------|------|-----|------|
 | EPC Email Issue Management | EPC 프로젝트 이메일 기반 이슈 추적/분류/대시보드 | [바로가기](https://wonsj3712.github.io/demo-showcase/epc-demo/) | `epc-demo/` (이 레포) |
 | Manufacturing Agent Demo | DK산업 제조업 설비 예방보전 AI 데모 (Next.js 정적 export, 목업 모드) | [바로가기](https://wonsj3712.github.io/demo-showcase/manufacturing-agent-demo/) | [wonsj3712/manufacturing-agent-demo](https://github.com/wonsj3712/manufacturing-agent-demo) (Private + Archived) |
-| Samsung Life PoC Insurance Agent | 지급심사·가입심사·법령개정 비교 3종 AI 에이전트. 4요소 카드 답변 + 의심 영역 자동 식별 (STORM 워크플로우) | [바로가기](https://wonsj3712.github.io/demo-showcase/samsung-life-poc-demo/) | `samsung-life-poc-demo/` (이 레포) |
+| S Life Insurance PoC Insurance Agent | 지급심사·가입심사·법령개정 비교 3종 AI 에이전트. 4요소 카드 답변 + 의심 영역 자동 식별 (STORM 워크플로우) | [바로가기](https://wonsj3712.github.io/demo-showcase/s-life-insurance-poc-demo/) | `s-life-insurance-poc-demo/` (이 레포) |
 
 ## 자동 배포
 

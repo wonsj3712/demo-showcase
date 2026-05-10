@@ -31,9 +31,9 @@ jobs:
           npm install
           npm run build
 
-      # Samsung Life PoC Demo 빌드
-      - name: Install & Build samsung-life-poc-demo
-        working-directory: samsung-life-poc-demo
+      # S Life Insurance PoC Demo 빌드
+      - name: Install & Build s-life-insurance-poc-demo
+        working-directory: s-life-insurance-poc-demo
         run: |
           npm install
           npm run build
@@ -41,12 +41,12 @@ jobs:
       # 배포용 폴더 조합: 루트 index.html + 각 데모
       - name: Assemble site
         run: |
-          mkdir -p _site/epc-demo _site/manufacturing-agent-demo _site/samsung-life-poc-demo
+          mkdir -p _site/epc-demo _site/manufacturing-agent-demo _site/s-life-insurance-poc-demo
           cp index.html _site/
           touch _site/.nojekyll
           cp -r epc-demo/dist/* _site/epc-demo/
           cp -r manufacturing-agent-demo/. _site/manufacturing-agent-demo/
-          cp -r samsung-life-poc-demo/dist/* _site/samsung-life-poc-demo/
+          cp -r s-life-insurance-poc-demo/dist/* _site/s-life-insurance-poc-demo/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

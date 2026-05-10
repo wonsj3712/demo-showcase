@@ -189,7 +189,7 @@ function Header(props: {
     <header className="header">
       <div className="header-left">
         <span className="logo-mark">●</span>
-        <span className="logo-text">삼성생명 AI 에이전트</span>
+        <span className="logo-text">S Life Insurance · AI 에이전트</span>
         <span className="brand-tag">Powered by Sionic STORM</span>
       </div>
       <nav className="tabs">

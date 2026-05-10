@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
   });
 
   return {
-    base: '/demo-showcase/samsung-life-poc-demo/',
+    base: '/demo-showcase/s-life-insurance-poc-demo/',
     plugins: [react()],
     server: {
       port: 5173,

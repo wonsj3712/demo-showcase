@@ -1,9 +1,9 @@
 {
-  "name": "samsung-life-poc-demo",
+  "name": "s-life-insurance-poc-demo",
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "description": "삼성생명 C-Lab Outside PoC 발표 데모 UI - 지급심사 에이전트 시연 (90초)",
+  "description": "S Life Insurance PoC 발표 데모 UI - 지급심사 에이전트 시연 (90초)",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "tsc && vite build",
