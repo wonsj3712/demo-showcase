@@ -19,16 +19,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # EPC Demo 빌드
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: epc-demo/package-lock.json
 
+      # EPC Demo 빌드
       - name: Install & Build epc-demo
         working-directory: epc-demo
+        run: |
+          npm install
+          npm run build
+
+      # Samsung Life PoC Demo 빌드
+      - name: Install & Build samsung-life-poc-demo
+        working-directory: samsung-life-poc-demo
         run: |
           npm install
           npm run build
@@ -36,11 +41,12 @@ jobs:
       # 배포용 폴더 조합: 루트 index.html + 각 데모
       - name: Assemble site
         run: |
-          mkdir -p _site/epc-demo _site/manufacturing-agent-demo
+          mkdir -p _site/epc-demo _site/manufacturing-agent-demo _site/samsung-life-poc-demo
           cp index.html _site/
           touch _site/.nojekyll
           cp -r epc-demo/dist/* _site/epc-demo/
           cp -r manufacturing-agent-demo/. _site/manufacturing-agent-demo/
+          cp -r samsung-life-poc-demo/dist/* _site/samsung-life-poc-demo/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
