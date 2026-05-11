@@ -38,15 +38,23 @@ jobs:
           npm install
           npm run build
 
+      # Samsung Fire PE PoC Demo 빌드
+      - name: Install & Build samsungfire-pe-poc-demo
+        working-directory: samsungfire-pe-poc-demo
+        run: |
+          npm install
+          npm run build
+
       # 배포용 폴더 조합: 루트 index.html + 각 데모
       - name: Assemble site
         run: |
-          mkdir -p _site/epc-demo _site/manufacturing-agent-demo _site/s-life-insurance-poc-demo
+          mkdir -p _site/epc-demo _site/manufacturing-agent-demo _site/s-life-insurance-poc-demo _site/samsungfire-pe-poc-demo
           cp index.html _site/
           touch _site/.nojekyll
           cp -r epc-demo/dist/* _site/epc-demo/
           cp -r manufacturing-agent-demo/. _site/manufacturing-agent-demo/
           cp -r s-life-insurance-poc-demo/dist/* _site/s-life-insurance-poc-demo/
+          cp -r samsungfire-pe-poc-demo/dist/* _site/samsungfire-pe-poc-demo/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

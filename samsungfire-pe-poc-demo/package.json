@@ -1,0 +1,23 @@
+{
+  "name": "samsungfire-pe-poc-demo",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "삼성화재 C-Lab 3차 임원 심사 데모 UI — 해외 사모펀드 입출금 자동화 에이전트 (사용자 화면, 5분 시연)",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5174",
+    "build": "tsc && vite build",
+    "preview": "vite preview --port 4174"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}
