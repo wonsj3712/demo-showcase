@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import type {
-  InboxEmail,
   StandardFormRow,
   WorkflowStep,
 } from './types';
@@ -8,17 +7,15 @@ import {
   INBOX_EMAILS,
   EXTRACTION_RESULTS,
   buildStandardRow,
-  ONTOLOGY_DICT,
-  PE_FACTS,
 } from './mockData';
-import { callStormAgent, isMockMode } from './api';
+import { callStormAgent } from './api';
 
-const STEPS: { key: WorkflowStep; label: string; pain: string }[] = [
-  { key: 'classify', label: 'N0 메일 분류',     pain: '공용 메일함 中 입출금 메일만 추출' },
-  { key: 'parse',    label: 'N1 PDF 파싱',      pain: 'VLM 듀얼 파싱 (병합셀·줄글·다중 통화)' },
-  { key: 'code_search', label: 'N2 회사 코드 검색', pain: '공통 노티스에서 S23 매칭 (회의록 발화자 6)' },
-  { key: 'ontology', label: 'N3 온톨로지 매핑', pain: '펀드사별 용어 → 표준 칼럼 (회의록 발화자 4)' },
-  { key: 'normalize', label: 'N4 표준양식 출력', pain: 'USD/EUR/JPY 환산 + 컨펌상태 확인필요' },
+const STEPS: { key: WorkflowStep; label: string; desc: string }[] = [
+  { key: 'classify',    label: '메일 분류',        desc: '입출금 관련 메일만 처리 큐로 분배' },
+  { key: 'parse',       label: '문서 분석',        desc: '첨부 PDF·본문의 표·줄글을 데이터로 변환' },
+  { key: 'code_search', label: '투자자 코드 식별', desc: '공통 노티스에서 자기 회사 행을 추출' },
+  { key: 'ontology',    label: '거래 항목 표준화', desc: '펀드사별 다른 용어를 내부 표준 칼럼으로 매핑' },
+  { key: 'normalize',   label: '표준양식 변환',    desc: '환율 적용 + 누적 계산 + 담당자 검토 대기' },
 ];
 
 const STEP_TIMING_MS = 1200;
@@ -39,10 +36,7 @@ export default function App() {
   const [pendingRow, setPendingRow] = useState<StandardFormRow | null>(null);
   const [running, setRunning] = useState(false);
   const [autoMode, setAutoMode] = useState(false);
-  const [stormElapsed, setStormElapsed] = useState<number | null>(null);
-  const [liveStorm, setLiveStorm] = useState(false);
 
-  const mock = isMockMode();
   const selected = useMemo(
     () => INBOX_EMAILS.find((e) => e.id === selectedId) || null,
     [selectedId],
@@ -60,33 +54,76 @@ export default function App() {
 
   async function runWorkflow(emailId: string) {
     setRunning(true);
-    setStormElapsed(null);
-    setLiveStorm(false);
     setStep('idle');
     setPendingRow(null);
 
-    // (1) STORM 호출 시도. 실패하면 조용히 mock 폴백 (api.ts에서 자동 처리).
     const e = INBOX_EMAILS.find((x) => x.id === emailId);
-    if (e && e.category === 'FUND_INOUT') {
-      const r = await callStormAgent(
-        'inbox',
-        `메일 분류: ${e.subject} / 발신: ${e.from}`,
-      );
-      setStormElapsed(r.elapsedMs);
-      setLiveStorm(!r.isMock);
+    if (!e || e.category !== 'FUND_INOUT') {
+      setRunning(false);
+      return;
     }
 
-    // (2) 단계별 visual
-    for (const s of STEPS) {
-      setStep(s.key);
-      await new Promise((r) => setTimeout(r, STEP_TIMING_MS));
-    }
+    // === Step 1: 메일 분류 (inbox 에이전트) ===
+    setStep('classify');
+    const inboxPromise = callStormAgent(
+      'inbox',
+      `메일 분류: ${e.subject} / 발신: ${e.from}`,
+    );
+    await Promise.all([
+      inboxPromise,
+      new Promise((r) => setTimeout(r, STEP_TIMING_MS)),
+    ]);
 
-    // (3) 표준양식 행 빌드
+    // === Step 2: 문서 분석 (시각 단계 — STORM Parse는 첨부 업로드 시 백엔드 자동 수행) ===
+    setStep('parse');
+    await new Promise((r) => setTimeout(r, STEP_TIMING_MS));
+
+    // === Step 3·4: 투자자 코드 식별 + 거래 항목 표준화 (extractor 에이전트, RAG + 2 LLM) ===
+    setStep('code_search');
+    const extractorPromise = callStormAgent(
+      'extractor',
+      buildExtractorQuery(e),
+    );
+    await new Promise((r) => setTimeout(r, STEP_TIMING_MS));
+    setStep('ontology');
+    await Promise.all([
+      extractorPromise,
+      new Promise((r) => setTimeout(r, STEP_TIMING_MS)),
+    ]);
+
+    // === Step 5: 표준양식 변환 (normalizer 에이전트, 결정적 카드) ===
+    setStep('normalize');
+    const normalizerPromise = callStormAgent(
+      'normalizer',
+      `오늘 사모펀드 메일 처리: ${e.fundCase || 'unknown'} 케이스 - ${e.subject}`,
+    );
+    await Promise.all([
+      normalizerPromise,
+      new Promise((r) => setTimeout(r, STEP_TIMING_MS)),
+    ]);
+
+    // 표준양식 행 빌드
     const next = buildStandardRow(emailId, completedRows.length + 1);
     setPendingRow(next);
     setStep('confirm');
     setRunning(false);
+  }
+
+  function buildExtractorQuery(email: typeof INBOX_EMAILS[number]): string {
+    switch (email.fundCase) {
+      case 'apollo':
+        return 'Apollo Global Private Equity Fund VIII Capital Call Notice에서 삼성화재(APO-VIII-LP-0083) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
+      case 'kkr':
+        return 'KKR Asian Fund III Q1 2026 공통 노티스에서 삼성화재(S23) 행을 식별하고 표준 칼럼으로 매핑해 주세요.';
+      case 'nippon':
+        return 'Nippon Private Equity Partners Fund III Drawdown #5 (JPY) 노티스에서 삼성화재(NPE-III-LP-S23) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
+      case 'tiger':
+        return 'Tiger Global Private Investment Partners XV Capital Account Statement에서 삼성화재(TG-XV-S23) 거래를 추출하고 용어를 표준 칼럼으로 매핑해 주세요.';
+      case 'silverlake':
+        return 'Silver Lake Partners VII Capital Call Notice #7에서 삼성화재(SLP-VII-IS-0042) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
+      default:
+        return `${email.subject} 에서 삼성화재 거래를 추출하고 표준 칼럼으로 매핑해 주세요.`;
+    }
   }
 
   function confirmRow() {
@@ -130,8 +167,6 @@ export default function App() {
     setCompletedRows([]);
     setPendingRow(null);
     setRunning(false);
-    setStormElapsed(null);
-    setLiveStorm(false);
   }
 
   return (
@@ -141,25 +176,11 @@ export default function App() {
         <div className="hdr-left">
           <div className="brand">
             <span className="brand-mark" />
-            <span className="brand-name">Sionic STORM</span>
-            <span className="brand-x">×</span>
-            <span className="brand-customer">삼성화재</span>
+            <span className="brand-name">해외 사모펀드 입출금 자동화 시스템</span>
           </div>
-          <div className="hdr-sub">해외 사모펀드 입출금 자동화 · PoC 데모</div>
+          <div className="hdr-sub">투자운용부 · 자산대사 등록</div>
         </div>
         <div className="hdr-right">
-          <span className={`mode-pill ${(mock || !liveStorm) ? 'mock' : 'live'}`}>
-            {mock
-              ? 'MOCK 모드 (Production)'
-              : liveStorm
-                ? 'LIVE STORM 연동'
-                : 'MOCK 폴백 (STORM 키 미설정)'}
-          </span>
-          {stormElapsed !== null && (
-            <span className="storm-elapsed">
-              {liveStorm ? 'STORM 응답' : 'mock 응답'} {stormElapsed.toFixed(0)}ms
-            </span>
-          )}
           <button className="btn-reset" onClick={resetDemo} disabled={running}>
             처음으로
           </button>
@@ -172,18 +193,15 @@ export default function App() {
         <section className="pane inbox">
           <div className="pane-hdr">
             <div className="pane-title">
-              공용 메일함
+              공용 수신함
               <span className="pane-meta">
                 총 {INBOX_EMAILS.length}건 · 입출금{' '}
                 <span className="bdg bdg-fund">
                   {classifiedCounts.FUND_INOUT}
                 </span>{' '}
-                · 비업무{' '}
+                · 기타{' '}
                 <span className="bdg bdg-non">{classifiedCounts.NON_FUND}</span>
               </span>
-            </div>
-            <div className="pane-hint">
-              회의록 발화자 6: "공용 메일에 모든 메일이 들어옴, 입출금은 일부"
             </div>
           </div>
           <ul className="mail-list">
@@ -199,9 +217,9 @@ export default function App() {
                   <span className={`bdg bdg-${
                     m.category === 'FUND_INOUT' ? 'fund' : 'non'
                   }`}>
-                    {m.category === 'FUND_INOUT' ? '입출금' : '비업무'}
+                    {m.category === 'FUND_INOUT' ? '입출금' : '기타'}
                   </span>
-                  <span className="mail-from">{m.from}</span>
+                  <span className="mail-from">{m.from.replace(/<[^>]+>/, '').trim()}</span>
                   <span className="mail-time">{m.receivedAt.slice(11)}</span>
                 </div>
                 <div className="mail-subject">
@@ -209,7 +227,6 @@ export default function App() {
                   {m.subject}
                 </div>
                 <div className="mail-preview">{m.preview}</div>
-                <div className="mail-reason">↳ {m.classifyReason}</div>
               </li>
             ))}
           </ul>
@@ -222,23 +239,28 @@ export default function App() {
               <div className="empty-emoji">📥</div>
               <div className="empty-msg">왼쪽에서 메일을 선택하세요</div>
               <div className="empty-sub">
-                입출금 메일을 선택하면 5단 자동화 워크플로가 시연됩니다.
+                입출금 관련 메일을 선택하면 자동 처리가 시작됩니다.
               </div>
             </div>
           ) : (
             <>
-              {/* 메일 헤더 */}
+              {/* 메일 헤더·본문 */}
               <div className="detail-mail">
                 <div className="detail-mail-from">
                   <span className={`bdg bdg-${
                     selected.category === 'FUND_INOUT' ? 'fund' : 'non'
                   }`}>
-                    {selected.category === 'FUND_INOUT' ? '입출금' : '비업무'}
+                    {selected.category === 'FUND_INOUT' ? '입출금' : '기타'}
                   </span>
                   {selected.from} · {selected.receivedAt}
                 </div>
                 <div className="detail-mail-subj">{selected.subject}</div>
-                <div className="detail-mail-body">{selected.preview}</div>
+                {selected.hasAttachment && selected.attachmentName && (
+                  <div className="detail-attachment">
+                    📎 {selected.attachmentName}
+                  </div>
+                )}
+                <pre className="detail-mail-body">{selected.body}</pre>
                 {selected.category === 'FUND_INOUT' && step === 'idle' && (
                   <div className="cta">
                     <label className="auto-toggle">
@@ -248,20 +270,20 @@ export default function App() {
                         onChange={(e) => setAutoMode(e.target.checked)}
                         disabled={running}
                       />
-                      자동 모드 (확인완료 시 다음 입출금 메일 자동 처리)
+                      연속 처리 모드 (검토 완료 시 다음 입출금 메일 자동 진행)
                     </label>
                     <button
                       className="btn-primary"
                       onClick={() => runWorkflow(selected.id)}
                       disabled={running}
                     >
-                      이 메일 자동 처리 시작 →
+                      자동 처리 시작
                     </button>
                   </div>
                 )}
                 {selected.category === 'NON_FUND' && (
                   <div className="non-note">
-                    이 메일은 입출금 관련이 아닙니다 (NON_FUND). 처리 큐에 진입하지 않습니다.
+                    이 메일은 입출금 관련이 아닙니다. 처리 큐에 진입하지 않습니다.
                   </div>
                 )}
               </div>
@@ -269,7 +291,7 @@ export default function App() {
               {/* 워크플로 진행 */}
               {selected.category === 'FUND_INOUT' && step !== 'idle' && (
                 <div className="workflow">
-                  <div className="wf-title">에이전트 워크플로 진행</div>
+                  <div className="wf-title">처리 단계</div>
                   <ol className="wf-steps">
                     {STEPS.map((s) => {
                       const idx = STEPS.findIndex((x) => x.key === step);
@@ -289,18 +311,7 @@ export default function App() {
                           </span>
                           <div className="wf-step-body">
                             <div className="wf-step-label">{s.label}</div>
-                            <div className="wf-step-pain">{s.pain}</div>
-                            {isActive && s.key === 'parse' && (
-                              <div className="wf-step-detail">
-                                VLM 듀얼 파싱 진행 중 · 평균 {PE_FACTS.parseSeconds}초 (KPI ≤ 30초)
-                              </div>
-                            )}
-                            {isActive && s.key === 'code_search' &&
-                              selected.fundCase === 'kkr' && (
-                                <div className="wf-step-detail">
-                                  30개 LP 중 <b>S23</b> 행 매칭 검색 중...
-                                </div>
-                              )}
+                            <div className="wf-step-pain">{s.desc}</div>
                           </div>
                         </li>
                       );
@@ -309,7 +320,7 @@ export default function App() {
                 </div>
               )}
 
-              {/* 추출 결과 (parse 이후) */}
+              {/* 추출 결과 (코드검색 이후) */}
               {selected.category === 'FUND_INOUT' &&
                 ['code_search', 'ontology', 'normalize', 'confirm', 'done'].includes(
                   step,
@@ -322,31 +333,31 @@ export default function App() {
               {step === 'confirm' && pendingRow && (
                 <div className="confirm-box">
                   <div className="confirm-title">
-                    ⚠ 사람 컨펌 단계 (자동 확정 절대 안 됨)
+                    담당자 검토 (자동 확정 안 함)
                   </div>
                   <div className="confirm-row">
                     <div className="confirm-col">
-                      <div className="confirm-label">표준양식 입력 예정 행</div>
+                      <div className="confirm-label">입력 예정 거래</div>
                       <RowPreview row={pendingRow} />
                     </div>
                     <div className="confirm-col">
-                      <div className="confirm-label">원본 위치 (검증)</div>
+                      <div className="confirm-label">원본 위치</div>
                       <div className="evidence">
                         <div className="evidence-mark">
                           ▸ {EXTRACTION_RESULTS[selected.id]?.matchRowContext}
                         </div>
                         <div className="evidence-note">
-                          원본 PDF 뷰어에서 해당 위치 하이라이팅 표시 (실 운영 환경)
+                          원본 문서에서 해당 위치가 함께 표시됩니다.
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="confirm-actions">
                     <button className="btn-confirm" onClick={confirmRow}>
-                      ✓ 확인완료 (표준양식 입력)
+                      검토 완료 (확정 등록)
                     </button>
                     <button className="btn-hold" onClick={holdRow}>
-                      ⏸ 보류 (재검토)
+                      보류
                     </button>
                   </div>
                 </div>
@@ -360,12 +371,12 @@ export default function App() {
       <section className="form-pane">
         <div className="form-hdr">
           <div className="form-title">
-            T_삼성화재_자산대사_표준양식.xlsx · 시트1 "해외사모펀드_입출금"
+            자산대사 등록 현황 (해외사모펀드 입출금)
           </div>
           <div className="form-meta">
-            누적 행 {completedRows.length}건 · 컨펌상태별
+            누적 {completedRows.length}건
             <span className="bdg-mini bdg-confirm">
-              완료 {completedRows.filter((r) => r.confirmStatus === '확인완료').length}
+              확정 {completedRows.filter((r) => r.confirmStatus === '확인완료').length}
             </span>
             <span className="bdg-mini bdg-hold">
               보류 {completedRows.filter((r) => r.confirmStatus === '보류').length}
@@ -388,7 +399,7 @@ export default function App() {
                 <th>누적 Drawdown</th>
                 <th>누적 Distribution</th>
                 <th>Investor Code</th>
-                <th>컨펌상태</th>
+                <th>상태</th>
                 <th>비고</th>
               </tr>
             </thead>
@@ -396,7 +407,7 @@ export default function App() {
               {completedRows.length === 0 && (
                 <tr>
                   <td colSpan={14} className="empty-row">
-                    (아직 처리된 행 없음. 입출금 메일 선택 후 자동 처리 시작)
+                    (아직 등록된 행 없음. 입출금 메일 선택 후 자동 처리 시작)
                   </td>
                 </tr>
               )}
@@ -421,7 +432,8 @@ export default function App() {
                       r.confirmStatus === '확인완료' ? 'confirm'
                       : r.confirmStatus === '보류' ? 'hold' : 'need'
                     }`}>
-                      {r.confirmStatus}
+                      {r.confirmStatus === '확인완료' ? '확정'
+                      : r.confirmStatus === '보류' ? '보류' : '검토 대기'}
                     </span>
                   </td>
                   <td className="ellipsis" title={r.note}>{r.note}</td>
@@ -431,35 +443,6 @@ export default function App() {
           </table>
         </div>
       </section>
-
-      {/* 푸터: PoC ↔ 본사업 경계 */}
-      <footer className="ftr">
-        <div className="ftr-title">PoC 범위 / 본사업 SI 영역 (항상 같이 보여드림)</div>
-        <div className="ftr-grid">
-          <div className="ftr-cell ftr-poc">
-            <div className="ftr-cell-h">PoC (오늘 시연 ✓)</div>
-            <ul>
-              <li>공용 메일함 분류 (95%+)</li>
-              <li>STORM Parse VLM 듀얼 파싱</li>
-              <li>회사 코드 S23 매칭 (99%+)</li>
-              <li>온톨로지 매핑 ({PE_FACTS.ontologyRules}개 룰)</li>
-              <li>USD/EUR/JPY 환산</li>
-              <li>표준양식 + 사람 컨펌</li>
-            </ul>
-          </div>
-          <div className="ftr-cell ftr-si">
-            <div className="ftr-cell-h">본사업 SI 영역 (사이오닉 + SI 파트너)</div>
-            <ul>
-              <li>녹스 메일 직접 연동</li>
-              <li>ERP 자동 입력</li>
-              <li>SWIFT MT202 전문 자동 생성</li>
-              <li>암호 PDF 해제 모듈</li>
-              <li>회사 코드 마스터 / 온톨로지 운영 UI</li>
-              <li>폐쇄망 온프레미스 구축</li>
-            </ul>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
@@ -472,10 +455,10 @@ function Extraction({ emailId }: { emailId: string }) {
       <div className="extraction-title">추출 결과</div>
       <div className="extraction-grid">
         <div className="ex-cell">
-          <div className="ex-label">회사 코드 매칭</div>
+          <div className="ex-label">투자자 코드</div>
           <div className="ex-value mono">{ex.investorCode}</div>
           <div className="ex-sub">
-            신뢰도 {ex.matchConfidence.toFixed(1)}% · 단일 매칭
+            신뢰도 {ex.matchConfidence.toFixed(1)}%, 단일 매칭
           </div>
           <div className="ex-evidence">▸ {ex.matchRowContext}</div>
         </div>
@@ -495,7 +478,7 @@ function Extraction({ emailId }: { emailId: string }) {
         </div>
       </div>
       <div className="ontology-table">
-        <div className="ex-label">온톨로지 매핑 (펀드사 용어 → 표준 칼럼)</div>
+        <div className="ex-label">용어 표준화</div>
         <table>
           <thead>
             <tr>
@@ -543,7 +526,7 @@ function RowPreview({ row }: { row: StandardFormRow }) {
       <div className="rp-r">
         <span className="rp-k">KRW 환산:</span>
         <span className="rp-v mono">
-          {row.krwAmount.toLocaleString('ko-KR')} 원 (× {row.fxRate})
+          {row.krwAmount.toLocaleString('ko-KR')}원 (× {row.fxRate})
         </span>
       </div>
       <div className="rp-r">
@@ -551,8 +534,8 @@ function RowPreview({ row }: { row: StandardFormRow }) {
         <span className="rp-v mono">{row.investorCode}</span>
       </div>
       <div className="rp-r">
-        <span className="rp-k">컨펌상태:</span>
-        <span className="rp-v warn">{row.confirmStatus}</span>
+        <span className="rp-k">상태:</span>
+        <span className="rp-v warn">검토 대기</span>
       </div>
     </div>
   );

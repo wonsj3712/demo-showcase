@@ -46,28 +46,39 @@ export async function callStormAgent(
     return mockResult(role, question, t0);
   }
 
+  // s-life-insurance-poc-demo와 동일한 endpoint·payload 패턴
+  const url = `${cfg.proxyPath}/api/v2/answer`;
+  const payload = {
+    agentId: cfg.agentId,
+    question,
+    message: question,
+    input: question,
+  };
+
   try {
-    const res = await fetch(
-      `${cfg.proxyPath}/api/v2/answer/agents/${cfg.agentId}/chat`,
-      {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ question }),
-      },
-    );
-    // 401·403·404·5xx 등 STORM API 호출이 실패하면 조용히 mock으로 폴백.
-    // 라이브 시연 안정성 우선. 콘솔에는 1줄 경고만 남김.
+    if (typeof console !== 'undefined') {
+      console.log(`[storm] → ${role} POST ${url}`, { agentId: cfg.agentId, q: question.slice(0, 80) });
+    }
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
     if (!res.ok) {
+      const errText = await res.text();
       if (typeof console !== 'undefined') {
-        console.warn(
-          `[storm] ${role} HTTP ${res.status} · ${cfg.envKey} 미설정 또는 권한 미부여로 추정 · mock 폴백`,
-        );
+        console.warn(`[storm] ✗ ${role} HTTP ${res.status} · mock 폴백`, errText.slice(0, 200));
       }
       return mockResult(role, question, t0);
     }
+
     const body = await res.json();
     const answer =
-      body?.data?.answer ?? body?.data?.chat?.answer ?? body?.answer ?? '';
+      body?.data?.chat?.answer ?? body?.data?.answer ?? body?.answer ?? '';
+    if (typeof console !== 'undefined') {
+      console.log(`[storm] ✓ ${role} ${(performance.now() - t0).toFixed(0)}ms`, String(answer).slice(0, 100));
+    }
     return {
       rawAnswer: typeof answer === 'string' ? answer : JSON.stringify(answer),
       elapsedMs: performance.now() - t0,
@@ -75,7 +86,7 @@ export async function callStormAgent(
     };
   } catch (e: any) {
     if (typeof console !== 'undefined') {
-      console.warn(`[storm] ${role} fetch error · mock 폴백`, e?.message);
+      console.warn(`[storm] ✗ ${role} fetch error · mock 폴백`, e?.message);
     }
     return mockResult(role, question, t0);
   }

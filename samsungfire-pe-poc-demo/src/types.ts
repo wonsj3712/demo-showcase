@@ -5,8 +5,10 @@ export interface InboxEmail {
   from: string;
   subject: string;
   preview: string;
+  body: string;
   receivedAt: string;
   hasAttachment: boolean;
+  attachmentName?: string;
   category: EmailCategory;
   classifyReason: string;
   fundCase?: 'apollo' | 'kkr' | 'nippon' | 'tiger' | 'silverlake';

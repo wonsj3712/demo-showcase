@@ -388,11 +388,32 @@ button:disabled {
   margin-bottom: 8px;
 }
 
+.detail-attachment {
+  display: inline-block;
+  font-size: 11px;
+  background: var(--sionic-blue-soft);
+  color: var(--sionic-blue-dark);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
 .detail-mail-body {
   font-size: 12px;
-  color: #444;
-  line-height: 1.5;
-  margin-bottom: 12px;
+  color: #333;
+  line-height: 1.55;
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  background: #fafbfc;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Pretendard,
+    'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  max-height: 280px;
+  overflow-y: auto;
 }
 
 .cta {
