@@ -4,7 +4,7 @@ export const INBOX_EMAILS: InboxEmail[] = [
   {
     id: 'M1_01',
     from: 'Apollo Investor Relations',
-    subject: '[Capital Call Notice] Apollo Global PE Fund VIII — Call #12',
+    subject: '[Capital Call Notice] Apollo Global PE Fund VIII, Call #12',
     preview: 'Dear Limited Partner, please find attached Capital Call Notice #12. Due: 2026-04-08. Amount: USD 4,500,000...',
     receivedAt: '2026-05-12 09:14',
     hasAttachment: true,
@@ -15,7 +15,7 @@ export const INBOX_EMAILS: InboxEmail[] = [
   {
     id: 'M1_02',
     from: 'KKR Investor Services',
-    subject: 'Common Distribution Notice — Q1 2026 (All LPs)',
+    subject: 'Common Distribution Notice, Q1 2026 (All LPs)',
     preview: 'Each Investor is identified by an internal Investor Code only. Please refer to the row matching your code on file...',
     receivedAt: '2026-05-12 09:32',
     hasAttachment: true,
@@ -26,7 +26,7 @@ export const INBOX_EMAILS: InboxEmail[] = [
   {
     id: 'M1_03',
     from: 'Nippon PE Partners',
-    subject: 'Drawdown #5 — Nippon Private Equity Partners Fund III (JPY)',
+    subject: 'Drawdown #5, Nippon Private Equity Partners Fund III (JPY)',
     preview: 'Kindly find the JPY-denominated Drawdown #5 notice attached. Funding due: 2026-04-30. JPY 360,000,000...',
     receivedAt: '2026-05-12 10:05',
     hasAttachment: true,
@@ -57,7 +57,7 @@ export const INBOX_EMAILS: InboxEmail[] = [
   {
     id: 'M1_06',
     from: 'Bloomberg Newsletter',
-    subject: 'Asia Markets Daily — May 12, 2026',
+    subject: 'Asia Markets Daily, May 12, 2026',
     preview: "Today's key headlines from Bloomberg Asia Markets...",
     receivedAt: '2026-05-12 11:02',
     hasAttachment: false,
@@ -97,7 +97,7 @@ export const INBOX_EMAILS: InboxEmail[] = [
   {
     id: 'M1_10',
     from: 'Corporate Travel',
-    subject: 'Your booking confirmation — Tokyo trip Apr 22-25',
+    subject: 'Your booking confirmation, Tokyo trip Apr 22-25',
     preview: 'Dear traveler, your booking for the Tokyo trip is confirmed...',
     receivedAt: '2026-05-12 14:10',
     hasAttachment: false,
@@ -186,7 +186,7 @@ export function buildStandardRow(
     note = 'Apollo 병합셀 표 파싱';
   } else if (emailId === 'M1_02') {
     cumDist = 167400;
-    note = 'KKR 공통 노티스 — S23 코드 매칭 (30 LP 중 22번째)';
+    note = 'KKR 공통 노티스, S23 코드 매칭 (30 LP 중 22번째)';
   } else if (emailId === 'M1_03') {
     cumDrawn = 3285000000;
     note = 'Nippon PE JPY 통화, FX 9.45 적용';

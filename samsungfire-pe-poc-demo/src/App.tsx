@@ -15,7 +15,7 @@ import { callStormAgent, isMockMode } from './api';
 
 const STEPS: { key: WorkflowStep; label: string; pain: string }[] = [
   { key: 'classify', label: 'N0 메일 분류',     pain: '공용 메일함 中 입출금 메일만 추출' },
-  { key: 'parse',    label: 'N1 PDF 파싱',      pain: 'VLM 듀얼 파싱 — 병합셀·줄글·다중 통화' },
+  { key: 'parse',    label: 'N1 PDF 파싱',      pain: 'VLM 듀얼 파싱 (병합셀·줄글·다중 통화)' },
   { key: 'code_search', label: 'N2 회사 코드 검색', pain: '공통 노티스에서 S23 매칭 (회의록 발화자 6)' },
   { key: 'ontology', label: 'N3 온톨로지 매핑', pain: '펀드사별 용어 → 표준 칼럼 (회의록 발화자 4)' },
   { key: 'normalize', label: 'N4 표준양식 출력', pain: 'USD/EUR/JPY 환산 + 컨펌상태 확인필요' },
@@ -40,7 +40,7 @@ export default function App() {
   const [running, setRunning] = useState(false);
   const [autoMode, setAutoMode] = useState(false);
   const [stormElapsed, setStormElapsed] = useState<number | null>(null);
-  const [stormError, setStormError] = useState<string | null>(null);
+  const [liveStorm, setLiveStorm] = useState(false);
 
   const mock = isMockMode();
   const selected = useMemo(
@@ -60,24 +60,20 @@ export default function App() {
 
   async function runWorkflow(emailId: string) {
     setRunning(true);
-    setStormError(null);
     setStormElapsed(null);
+    setLiveStorm(false);
     setStep('idle');
     setPendingRow(null);
 
-    // (1) Optional: 실 STORM 호출 (mock 모드 아니고 첫 단계만 실연동 시도)
+    // (1) STORM 호출 시도. 실패하면 조용히 mock 폴백 (api.ts에서 자동 처리).
     const e = INBOX_EMAILS.find((x) => x.id === emailId);
     if (e && e.category === 'FUND_INOUT') {
-      try {
-        const r = await callStormAgent(
-          'inbox',
-          `메일 분류: ${e.subject} / 발신: ${e.from}`,
-        );
-        setStormElapsed(r.elapsedMs);
-        if (r.error) setStormError(r.error);
-      } catch (err: any) {
-        setStormError(err?.message || 'storm call error');
-      }
+      const r = await callStormAgent(
+        'inbox',
+        `메일 분류: ${e.subject} / 발신: ${e.from}`,
+      );
+      setStormElapsed(r.elapsedMs);
+      setLiveStorm(!r.isMock);
     }
 
     // (2) 단계별 visual
@@ -135,7 +131,7 @@ export default function App() {
     setPendingRow(null);
     setRunning(false);
     setStormElapsed(null);
-    setStormError(null);
+    setLiveStorm(false);
   }
 
   return (
@@ -149,20 +145,19 @@ export default function App() {
             <span className="brand-x">×</span>
             <span className="brand-customer">삼성화재</span>
           </div>
-          <div className="hdr-sub">해외 사모펀드 입출금 자동화 — PoC 데모</div>
+          <div className="hdr-sub">해외 사모펀드 입출금 자동화 · PoC 데모</div>
         </div>
         <div className="hdr-right">
-          <span className={`mode-pill ${mock ? 'mock' : 'live'}`}>
-            {mock ? 'MOCK 모드 (안정 시연)' : 'LIVE STORM 연동'}
+          <span className={`mode-pill ${(mock || !liveStorm) ? 'mock' : 'live'}`}>
+            {mock
+              ? 'MOCK 모드 (Production)'
+              : liveStorm
+                ? 'LIVE STORM 연동'
+                : 'MOCK 폴백 (STORM 키 미설정)'}
           </span>
           {stormElapsed !== null && (
             <span className="storm-elapsed">
-              STORM 응답 {stormElapsed.toFixed(0)}ms
-            </span>
-          )}
-          {stormError && (
-            <span className="storm-err" title={stormError}>
-              ⚠ {stormError.slice(0, 30)}
+              {liveStorm ? 'STORM 응답' : 'mock 응답'} {stormElapsed.toFixed(0)}ms
             </span>
           )}
           <button className="btn-reset" onClick={resetDemo} disabled={running}>
@@ -327,7 +322,7 @@ export default function App() {
               {step === 'confirm' && pendingRow && (
                 <div className="confirm-box">
                   <div className="confirm-title">
-                    ⚠ 사람 컨펌 단계 — 자동 확정 절대 안 됨
+                    ⚠ 사람 컨펌 단계 (자동 확정 절대 안 됨)
                   </div>
                   <div className="confirm-row">
                     <div className="confirm-col">
@@ -401,7 +396,7 @@ export default function App() {
               {completedRows.length === 0 && (
                 <tr>
                   <td colSpan={14} className="empty-row">
-                    (아직 처리된 행 없음 — 입출금 메일 선택 후 자동 처리 시작)
+                    (아직 처리된 행 없음. 입출금 메일 선택 후 자동 처리 시작)
                   </td>
                 </tr>
               )}
@@ -418,8 +413,8 @@ export default function App() {
                   <td>{r.currency}</td>
                   <td className="num">{r.fxRate}</td>
                   <td className="num">{krw(r.krwAmount)}</td>
-                  <td className="num">{r.cumulativeDrawn > 0 ? fmt(r.cumulativeDrawn) : '—'}</td>
-                  <td className="num">{r.cumulativeDistribution > 0 ? fmt(r.cumulativeDistribution) : '—'}</td>
+                  <td className="num">{r.cumulativeDrawn > 0 ? fmt(r.cumulativeDrawn) : '-'}</td>
+                  <td className="num">{r.cumulativeDistribution > 0 ? fmt(r.cumulativeDistribution) : '-'}</td>
                   <td>{r.investorCode}</td>
                   <td>
                     <span className={`bdg-mini bdg-${
@@ -439,7 +434,7 @@ export default function App() {
 
       {/* 푸터: PoC ↔ 본사업 경계 */}
       <footer className="ftr">
-        <div className="ftr-title">PoC 범위 / 본사업 SI 영역 — 항상 같이 보여드림</div>
+        <div className="ftr-title">PoC 범위 / 본사업 SI 영역 (항상 같이 보여드림)</div>
         <div className="ftr-grid">
           <div className="ftr-cell ftr-poc">
             <div className="ftr-cell-h">PoC (오늘 시연 ✓)</div>
