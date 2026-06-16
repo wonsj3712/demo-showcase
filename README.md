@@ -19,11 +19,13 @@ Sionic AI 데모 웹 앱 모음. 전시·영업 시연 때 쉽게 데모 화면�
 
 | 데모 | 설명 | URL | 소스/호스팅 |
 |------|------|-----|------|
-| Samsung Ventures Intelligence | 삼성벤처스 투자 인텔리전스 플랫폼. 스타트업·신기술 동향·투자 기회를 AI로 분석 | [바로가기](https://dev-samsung-vc-insight.sionic.im/login) | 외부 호스팅 (sionic.im, 로그인 필요) |
+| Venture Capital Ontology | Venture capital ontology | [바로가기](https://dev-samsung-vc-insight.sionic.im/login) | 외부 호스팅 (sionic.im, 로그인 필요) |
 | IBK 1stLab · AI 주택담보대출 간편심사 | IBK기업은행 혁신랩(1stLab) AI 기반 주택담보대출 간편심사 UI | [바로가기](https://ibk-1stlab-loan-screening-ui-sable.vercel.app/) | 외부 호스팅 (Vercel) |
 | KODIT · 기술보증기금 데모 | 기술보증기금(KODIT) 대상 AI 데모 (상세 미확인) | [바로가기](https://sionic-kodit.vercel.app/) | 외부 호스팅 (Vercel, 로그인 필요) |
 | KODATA · STORM 감정평가서 데이터화 | 한국평가데이터(KODATA) 과제. 부동산 감정평가서 디지털화·항목 추출·근거 기반 질의응답 | [바로가기](https://kodata-appraisal-demo.vercel.app/) | 외부 호스팅 (Vercel) |
 | STORM APIs Parse Differ | STORM 문서 파싱 결과를 비교·검증하는 도구 데모 | [바로가기](https://storm-apis-parse-differ.vercel.app/) | 외부 호스팅 (Vercel, 로그인 필요) |
+| NH농협 · 펀드 설명서 대조 PoC | NH농협은행 준법감시부 펀드 설명서 대조 PoC. DART 공시 vs 운용사 설명서 AI 자동 대조 | [바로가기](https://nh-fund-poc.vercel.app) | 외부 호스팅 (Vercel, 접근암호 필요) |
+| NH 컴플리가드 · 본사업 제안 데모 | 펀드 설명서 대조 본사업 비전 데모 (NH CompliGuard) | [바로가기](https://nh-compliguard-demo.vercel.app) | 외부 호스팅 (Vercel) |
 
 ## 자동 배포
 

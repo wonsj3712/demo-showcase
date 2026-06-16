@@ -58,36 +58,10 @@
       color: #94a3b8;
       line-height: 1.5;
     }
-    .tag {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 4px 10px;
-      background: #1e3a5f;
-      color: #60a5fa;
-      border-radius: 6px;
-      font-size: 12px;
-    }
-    .tag.live {
-      background: #14352a;
-      color: #4ade80;
-    }
     .ext {
       font-size: 13px;
       font-weight: 400;
       color: #64748b;
-    }
-    .section-label {
-      width: 100%;
-      max-width: 1000px;
-      margin: 44px 0 16px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #64748b;
-    }
-    .section-label:first-of-type {
-      margin-top: 0;
     }
   </style>
 </head>
@@ -95,56 +69,49 @@
   <h1>Dave's Sionic AI Demo Showcase</h1>
   <p class="subtitle">전시·영업 시연용 인터랙티브 데모 모음</p>
 
-  <div class="section-label">내장 데모</div>
   <div class="grid">
     <a class="card" href="./epc-demo/">
       <h2>EPC Email Issue Management</h2>
       <p>EPC 프로젝트 이메일 이슈 관리 시스템 데모. 이메일 기반 이슈 추적, 분류, 대시보드 시각화.</p>
-      <span class="tag">React + Vite</span>
     </a>
     <a class="card" href="./manufacturing-agent-demo/">
       <h2>Manufacturing Agent Demo</h2>
       <p>DK산업 제조업 설비 예방보전 AI 데모. 설비 80대 실시간 현황, 센서 추이, 알람·정비 이력, 에이전트 채팅.</p>
-      <span class="tag">Next.js + STORM</span>
     </a>
     <a class="card" href="./s-life-insurance-poc-demo/">
       <h2>S Life Insurance · PoC Insurance Agent</h2>
       <p>S Life Insurance PoC 데모. 지급심사·가입심사·법령개정 비교 3종 AI 에이전트가 청구서류·약관·법령을 통합 검토하고 4요소 카드로 답변.</p>
-      <span class="tag">React + Vite + STORM</span>
     </a>
     <a class="card" href="./samsungfire-pe-poc-demo/">
       <h2>Samsung Fire · 해외 사모펀드 입출금 자동화 PoC</h2>
       <p>삼성화재 C-Lab 3차 임원 심사용 데모. 공용 메일함 분류 → PDF 파싱 → 회사코드 S23 검색 → 용어 온톨로지 매핑 → 표준양식 출력 + 사람 컨펌. PoC ↔ 본사업 SI 경계 시각화.</p>
-      <span class="tag">React + Vite + STORM</span>
     </a>
-  </div>
-
-  <div class="section-label">라이브 배포 데모 · 새 창에서 열림</div>
-  <div class="grid">
     <a class="card" href="https://dev-samsung-vc-insight.sionic.im/login" target="_blank" rel="noopener">
-      <h2>Samsung Ventures Intelligence <span class="ext">↗</span></h2>
-      <p>삼성벤처스 투자 인텔리전스 플랫폼. 스타트업·신기술 동향·투자 기회를 AI로 분석. (로그인 필요)</p>
-      <span class="tag live">Live · 로그인</span>
+      <h2>Venture Capital Ontology <span class="ext">↗</span></h2>
     </a>
     <a class="card" href="https://ibk-1stlab-loan-screening-ui-sable.vercel.app/" target="_blank" rel="noopener">
       <h2>IBK 1stLab · AI 주택담보대출 간편심사 <span class="ext">↗</span></h2>
       <p>IBK기업은행 혁신랩(1stLab). AI 기반 주택담보대출 간편심사 화면 데모. 신청 정보 입력부터 심사 결과까지.</p>
-      <span class="tag live">Live</span>
     </a>
     <a class="card" href="https://sionic-kodit.vercel.app/" target="_blank" rel="noopener">
       <h2>KODIT · 기술보증기금 데모 <span class="ext">↗</span></h2>
-      <p>기술보증기금(KODIT) 대상 AI 데모. (로그인 필요)</p>
-      <span class="tag live">Live · 로그인</span>
+      <p>기술보증기금(KODIT) 대상 AI 데모.</p>
     </a>
     <a class="card" href="https://kodata-appraisal-demo.vercel.app/" target="_blank" rel="noopener">
       <h2>KODATA · STORM 감정평가서 데이터화 <span class="ext">↗</span></h2>
       <p>한국평가데이터(KODATA) 과제. 부동산 감정평가서를 AI로 디지털화하고 기본정보·평가액·평가방법 등을 자동 추출, 근거 기반 질의응답.</p>
-      <span class="tag live">Live · STORM</span>
     </a>
     <a class="card" href="https://storm-apis-parse-differ.vercel.app/" target="_blank" rel="noopener">
       <h2>STORM APIs Parse Differ <span class="ext">↗</span></h2>
-      <p>STORM 문서 파싱 결과를 비교·검증하는 도구 데모. 파서 버전·옵션별 추출 결과 차이를 한눈에 확인. (로그인 필요)</p>
-      <span class="tag live">Live · 로그인</span>
+      <p>STORM 문서 파싱 결과를 비교·검증하는 도구 데모. 파서 버전·옵션별 추출 결과 차이를 한눈에 확인.</p>
+    </a>
+    <a class="card" href="https://nh-fund-poc.vercel.app" target="_blank" rel="noopener">
+      <h2>NH농협 · 펀드 설명서 대조 PoC <span class="ext">↗</span></h2>
+      <p>NH농협은행 준법감시부 펀드 설명서 대조 PoC. DART 공시와 운용사 설명서를 AI로 자동 대조·검증.</p>
+    </a>
+    <a class="card" href="https://nh-compliguard-demo.vercel.app" target="_blank" rel="noopener">
+      <h2>NH 컴플리가드 · 본사업 제안 데모 <span class="ext">↗</span></h2>
+      <p>펀드 설명서 대조 본사업 비전 데모(NH CompliGuard). 대조 결과를 업무 화면으로 시각화.</p>
     </a>
   </div>
 </body>
