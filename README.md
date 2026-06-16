@@ -1,6 +1,6 @@
-# Demo Showcase
+# Dave's Sionic AI Demo Showcase
 
-Sionic AI 데모 웹 앱 모음. 쉽게 데모 화면을 확인할 수 있도록 GitHub Pages로 호스팅합니다.
+Sionic AI 데모 웹 앱 모음. 전시·영업 시연 때 쉽게 데모 화면을 꺼내볼 수 있도록 GitHub Pages로 호스팅합니다.
 
 **데모 목록 페이지**: https://wonsj3712.github.io/demo-showcase/
 
@@ -12,6 +12,18 @@ Sionic AI 데모 웹 앱 모음. 쉽게 데모 화면을 확인할 수 있도록
 | Manufacturing Agent Demo | DK산업 제조업 설비 예방보전 AI 데모 (Next.js 정적 export, 목업 모드) | [바로가기](https://wonsj3712.github.io/demo-showcase/manufacturing-agent-demo/) | [wonsj3712/manufacturing-agent-demo](https://github.com/wonsj3712/manufacturing-agent-demo) (Private + Archived) |
 | S Life Insurance PoC Insurance Agent | 지급심사·가입심사·법령개정 비교 3종 AI 에이전트. 4요소 카드 답변 + 의심 영역 자동 식별 (STORM 워크플로우) | [바로가기](https://wonsj3712.github.io/demo-showcase/s-life-insurance-poc-demo/) | `s-life-insurance-poc-demo/` (이 레포) |
 | Samsung Fire · 해외 사모펀드 입출금 자동화 PoC | C-Lab 3차 임원 심사 데모. 공용 메일함 분류, 공통 노티스 S23 코드 검색, 펀드사별 용어 온톨로지 매핑, USD/EUR/JPY 환산, 사람 컨펌. PoC ↔ 본사업 SI 경계 시각화. | [바로가기](https://wonsj3712.github.io/demo-showcase/samsungfire-pe-poc-demo/) | `samsungfire-pe-poc-demo/` (이 레포) |
+
+## 라이브 배포 데모 (외부 호스팅 · 새 창)
+
+외부 서버에 이미 배포된 데모를 링크로 연결합니다(방식 C). 소스/빌드 결과물은 이 레포에 복사하지 않습니다.
+
+| 데모 | 설명 | URL | 소스/호스팅 |
+|------|------|-----|------|
+| Samsung Ventures Intelligence | 삼성벤처스 투자 인텔리전스 플랫폼. 스타트업·신기술 동향·투자 기회를 AI로 분석 | [바로가기](https://dev-samsung-vc-insight.sionic.im/login) | 외부 호스팅 (sionic.im, 로그인 필요) |
+| IBK 1stLab · AI 주택담보대출 간편심사 | IBK기업은행 혁신랩(1stLab) AI 기반 주택담보대출 간편심사 UI | [바로가기](https://ibk-1stlab-loan-screening-ui-sable.vercel.app/) | 외부 호스팅 (Vercel) |
+| KODIT · 기술보증기금 데모 | 기술보증기금(KODIT) 대상 AI 데모 (상세 미확인) | [바로가기](https://sionic-kodit.vercel.app/) | 외부 호스팅 (Vercel, 로그인 필요) |
+| KODATA · STORM 감정평가서 데이터화 | 한국평가데이터(KODATA) 과제. 부동산 감정평가서 디지털화·항목 추출·근거 기반 질의응답 | [바로가기](https://kodata-appraisal-demo.vercel.app/) | 외부 호스팅 (Vercel) |
+| STORM APIs Parse Differ | STORM 문서 파싱 결과를 비교·검증하는 도구 데모 | [바로가기](https://storm-apis-parse-differ.vercel.app/) | 외부 호스팅 (Vercel, 로그인 필요) |
 
 ## 자동 배포
 
