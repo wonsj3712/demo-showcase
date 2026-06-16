@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
   });
 
   return {
-    base: '/demo-showcase/samsungfire-pe-poc-demo/',
+    base: '/samsungfire-pe-poc-demo/',
     plugins: [react()],
     server: {
       port: 5174,

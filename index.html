@@ -39,21 +39,26 @@
       border: 1px solid #334155;
       border-radius: 12px;
       padding: 28px;
-      text-decoration: none;
-      color: inherit;
+      display: flex;
+      flex-direction: column;
       transition: border-color 0.2s, transform 0.2s;
     }
     .card:hover {
       border-color: #3b82f6;
       transform: translateY(-2px);
     }
-    .card h2 {
+    .card-main {
+      text-decoration: none;
+      color: inherit;
+      flex: 1;
+    }
+    .card-main h2 {
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 8px;
       color: #f1f5f9;
     }
-    .card p {
+    .card-main p {
       font-size: 14px;
       color: #94a3b8;
       line-height: 1.5;
@@ -63,6 +68,41 @@
       font-weight: 400;
       color: #64748b;
     }
+    .agent-row {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #2a3a52;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+    .agent-row .label {
+      font-size: 11px;
+      color: #64748b;
+      margin-right: 2px;
+    }
+    .agent-chip {
+      font-size: 12px;
+      padding: 3px 9px;
+      background: #0f2942;
+      color: #7dd3fc;
+      border: 1px solid #1e3a5f;
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .agent-chip:hover {
+      background: #1e3a5f;
+      color: #bae6fd;
+    }
+    .footnote {
+      max-width: 1000px;
+      width: 100%;
+      margin-top: 28px;
+      font-size: 12px;
+      color: #64748b;
+    }
   </style>
 </head>
 <body>
@@ -70,49 +110,115 @@
   <p class="subtitle">전시·영업 시연용 인터랙티브 데모 모음</p>
 
   <div class="grid">
-    <a class="card" href="./epc-demo/">
-      <h2>EPC Email Issue Management</h2>
-      <p>EPC 프로젝트 이메일 이슈 관리 시스템 데모. 이메일 기반 이슈 추적, 분류, 대시보드 시각화.</p>
-    </a>
-    <a class="card" href="./manufacturing-agent-demo/">
-      <h2>Manufacturing Equipment Management System</h2>
-      <p>DK산업 제조업 설비 예방보전 AI 데모. 설비 80대 실시간 현황, 센서 추이, 알람·정비 이력, 에이전트 채팅.</p>
-    </a>
-    <a class="card" href="./s-life-insurance-poc-demo/">
-      <h2>Samsung Life Insurance · PoC Insurance Agent</h2>
-      <p>Samsung Life Insurance PoC 데모. 지급심사·가입심사·법령개정 비교 3종 AI 에이전트가 청구서류·약관·법령을 통합 검토하고 4요소 카드로 답변.</p>
-    </a>
-    <a class="card" href="./samsungfire-pe-poc-demo/">
-      <h2>Samsung Fire · 해외 사모펀드 입출금 자동화 PoC</h2>
-      <p>삼성화재 C-Lab 제안 과제</p>
-    </a>
-    <a class="card" href="https://dev-samsung-vc-insight.sionic.im/login" target="_blank" rel="noopener">
-      <h2>Venture Capital Ontology <span class="ext">↗</span></h2>
-    </a>
-    <a class="card" href="https://ibk-1stlab-loan-screening-ui-sable.vercel.app/" target="_blank" rel="noopener">
-      <h2>IBK AI 주택담보대출 간편심사 <span class="ext">↗</span></h2>
-      <p>IBK기업은행 AI 기반 주택담보대출 간편심사 화면 데모. 신청 정보 입력부터 심사 결과까지.</p>
-    </a>
-    <a class="card" href="https://sionic-kodit.vercel.app/" target="_blank" rel="noopener">
-      <h2>KODIT · 기술보증기금 데모 <span class="ext">↗</span></h2>
-      <p>기술보증기금(KODIT) 책임경영 이행점검 시스템.</p>
-    </a>
-    <a class="card" href="https://kodata-appraisal-demo.vercel.app/" target="_blank" rel="noopener">
-      <h2>KODATA · 감정평가서 데이터화 <span class="ext">↗</span></h2>
-      <p>한국평가데이터(KODATA) 과제. 부동산 감정평가서를 AI로 디지털화하고 기본정보·평가액·평가방법 등을 자동 추출, 근거 기반 질의응답.</p>
-    </a>
-    <a class="card" href="https://storm-apis-parse-differ.vercel.app/" target="_blank" rel="noopener">
-      <h2>STORM APIs Parse Differ <span class="ext">↗</span></h2>
-      <p>STORM 문서 파싱 결과를 비교·검증하는 도구 데모. 파서 버전·옵션별 추출 결과 차이를 한눈에 확인.</p>
-    </a>
-    <a class="card" href="https://nh-fund-poc.vercel.app" target="_blank" rel="noopener">
-      <h2>NH농협 · 펀드 설명서 대조 에이전트 시스템. <span class="ext">↗</span></h2>
-      <p>NH농협은행 준법감시부 펀드 설명서 대조 PoC. DART 공시와 운용사 설명서를 AI로 자동 대조·검증.</p>
-    </a>
-    <a class="card" href="https://nh-compliguard-demo.vercel.app" target="_blank" rel="noopener">
-      <h2>NH 컴플리가드 <span class="ext">↗</span></h2>
-      <p>준법감시부 에이전트 시스템</p>
-    </a>
+    <div class="card">
+      <a class="card-main" href="/epc-demo/">
+        <h2>EPC Email Issue Management</h2>
+        <p>EPC 프로젝트 이메일 이슈 관리 시스템 데모. 이메일 기반 이슈 추적, 분류, 대시보드 시각화.</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7446895300324683776" target="_blank" rel="noopener">이메일 이슈추출</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-main" href="/demo-showcase/manufacturing-agent-demo/">
+        <h2>Manufacturing Equipment Management System</h2>
+        <p>DK산업 제조업 설비 예방보전 AI 데모. 설비 80대 실시간 현황, 센서 추이, 알람·정비 이력, 에이전트 채팅.</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7446078992436166656" target="_blank" rel="noopener">통합 오케스트레이터</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-main" href="/s-life-insurance-poc-demo/">
+        <h2>Samsung Life Insurance · PoC Insurance Agent</h2>
+        <p>Samsung Life Insurance PoC 데모. 지급심사·가입심사·법령개정 비교 3종 AI 에이전트가 청구서류·약관·법령을 통합 검토하고 4요소 카드로 답변.</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7459166683076595712" target="_blank" rel="noopener">지급심사</a>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7459177960662470656" target="_blank" rel="noopener">가입심사</a>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7459179836053196800" target="_blank" rel="noopener">법령비교</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-main" href="/samsungfire-pe-poc-demo/">
+        <h2>Samsung Fire · 해외 사모펀드 입출금 자동화 PoC</h2>
+        <p>삼성화재 C-Lab 제안 과제</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7459748294933057536" target="_blank" rel="noopener">메일분류</a>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7459748327345979392" target="_blank" rel="noopener">추출</a>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7459738748749533184" target="_blank" rel="noopener">정규화</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-main" href="https://dev-samsung-vc-insight.sionic.im/login" target="_blank" rel="noopener">
+        <h2>Venture Capital Ontology <span class="ext">↗</span></h2>
+      </a>
+    </div>
+    <div class="card">
+      <a class="card-main" href="https://ibk-1stlab-loan-screening-ui-sable.vercel.app/" target="_blank" rel="noopener">
+        <h2>IBK AI 주택담보대출 간편심사 <span class="ext">↗</span></h2>
+        <p>IBK기업은행 AI 기반 주택담보대출 간편심사 화면 데모. 신청 정보 입력부터 심사 결과까지.</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7469630656655810560" target="_blank" rel="noopener">여신심사</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-main" href="https://sionic-kodit.vercel.app/" target="_blank" rel="noopener">
+        <h2>KODIT · 기술보증기금 데모 <span class="ext">↗</span></h2>
+        <p>기술보증기금(KODIT) 책임경영 이행점검 시스템.</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7459474412267737088" target="_blank" rel="noopener">이행점검</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-main" href="https://kodata-appraisal-demo.vercel.app/" target="_blank" rel="noopener">
+        <h2>KODATA · 감정평가서 데이터화 <span class="ext">↗</span></h2>
+        <p>한국평가데이터(KODATA) 과제. 부동산 감정평가서를 AI로 디지털화하고 기본정보·평가액·평가방법 등을 자동 추출, 근거 기반 질의응답.</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7470079583693017088" target="_blank" rel="noopener">공매</a>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7470104346279436288" target="_blank" rel="noopener">경매</a>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7470398033363701760" target="_blank" rel="noopener">직접 업로드</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-main" href="https://storm-apis-parse-differ.vercel.app/" target="_blank" rel="noopener">
+        <h2>STORM APIs Parse Differ <span class="ext">↗</span></h2>
+        <p>STORM 문서 파싱 결과를 비교·검증하는 도구 데모. 파서 버전·옵션별 추출 결과 차이를 한눈에 확인.</p>
+      </a>
+    </div>
+    <div class="card">
+      <a class="card-main" href="https://nh-fund-poc.vercel.app" target="_blank" rel="noopener">
+        <h2>NH농협 · 펀드 설명서 대조 에이전트 시스템. <span class="ext">↗</span></h2>
+        <p>NH농협은행 준법감시부 펀드 설명서 대조 PoC. DART 공시와 운용사 설명서를 AI로 자동 대조·검증.</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7470397423264169984" target="_blank" rel="noopener">펀드대조</a>
+      </div>
+    </div>
+    <div class="card">
+      <a class="card-main" href="https://nh-compliguard-demo.vercel.app" target="_blank" rel="noopener">
+        <h2>NH 컴플리가드 <span class="ext">↗</span></h2>
+        <p>준법감시부 에이전트 시스템</p>
+      </a>
+      <div class="agent-row">
+        <span class="label">에이전트</span>
+        <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7470397423264169984" target="_blank" rel="noopener">펀드대조</a>
+      </div>
+    </div>
   </div>
+
+  <p class="footnote">⚙ 에이전트 링크는 STORM 플랫폼(sionicstorm.ai) 화면으로, 시연자 로그인 후 열립니다. 시연 시 서비스 화면과 뒷단 에이전트를 함께 보여주는 용도입니다.</p>
 </body>
 </html>
