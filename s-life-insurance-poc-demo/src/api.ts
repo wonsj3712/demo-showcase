@@ -15,9 +15,9 @@ type ChatResponse = {
 // prod(Vercel): 서버리스 프록시(/api/storm/{role})로 연동 — 키는 서버에만 존재
 // 실엔진 호출 실패 시 사전검증 mock으로 폴백하여 시연 안정성 보장
 //
-// ⚠️ USE_REAL_ENGINE: 2026-06-16 기준 sample 계정의 지급/가입/법령 에이전트가
-// 한국평가데이터(감정평가) 버킷으로 오염되어 보험 답변 불가. 에이전트 복구 후 true로 전환.
-const USE_REAL_ENGINE = false;
+// USE_REAL_ENGINE: won_삼성생명_지급/가입/법령 전용 에이전트 신규 구축 완료(2026-06-17),
+// 실제 약관·법령 리서치 지식 RAG 연결. serverless(/api/storm/{role})로 실엔진 호출.
+const USE_REAL_ENGINE = true;
 const IS_DEV = import.meta.env.MODE !== 'production';
 
 const MODE_CONFIG: Record<AgentMode, { agentId: string; proxyPath: string; role: string }> = {
@@ -93,7 +93,9 @@ export async function callStormAgent(
       return mockFallback(mode, t0);
     }
 
-    const parsed = JSON.parse(rawAnswer) as AgentAnswer;
+    let raw = String(rawAnswer).trim();
+    if (raw.startsWith('```')) raw = raw.replace(/^```[a-z]*\s*/i, '').replace(/\s*```$/, '').trim();
+    const parsed = JSON.parse(raw) as AgentAnswer;
     return {
       answer: parsed,
       rawAnswer,

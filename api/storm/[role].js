@@ -5,9 +5,9 @@ const STORM_API = 'https://live-stargate.sionic.im/api/v2/answer';
 
 // agentId는 공개 정보라 하드코딩, 키만 환경변수에서 주입
 const AGENTS = {
-  payment:      { id: '7459166683076595712', key: process.env.STORM_KEY_PAYMENT },
-  underwriting: { id: '7459177960662470656', key: process.env.STORM_KEY_UNDERWRITING },
-  law:          { id: '7459179836053196800', key: process.env.STORM_KEY_LAW },
+  payment:      { id: '7472850492290461696', key: process.env.STORM_KEY_PAYMENT },
+  underwriting: { id: '7472850857014984704', key: process.env.STORM_KEY_UNDERWRITING },
+  law:          { id: '7472850858574843904', key: process.env.STORM_KEY_LAW },
   inbox:        { id: '7459748294933057536', key: process.env.STORM_KEY_INBOX },
   extractor:    { id: '7459748327345979392', key: process.env.STORM_KEY_EXTRACTOR },
   normalizer:   { id: '7459738748749533184', key: process.env.STORM_KEY_NORMALIZER },
