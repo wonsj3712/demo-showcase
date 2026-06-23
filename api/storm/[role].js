@@ -3,6 +3,9 @@
 // storm-api-key(환경변수)를 붙여 STORM live API로 중계한다. 키는 클라이언트에 노출되지 않는다.
 const STORM_API = 'https://live-stargate.sionic.im/api/v2/answer';
 
+// 콜드스타트(30~80초) 대응 — Vercel 함수 최대 실행시간 연장
+export const config = { maxDuration: 300 };
+
 // agentId는 공개 정보라 하드코딩, 키만 환경변수에서 주입
 const AGENTS = {
   payment:      { id: '7472850492290461696', key: process.env.STORM_KEY_PAYMENT },
@@ -11,6 +14,12 @@ const AGENTS = {
   inbox:        { id: '7459748294933057536', key: process.env.STORM_KEY_INBOX },
   extractor:    { id: '7459748327345979392', key: process.env.STORM_KEY_EXTRACTOR },
   normalizer:   { id: '7459738748749533184', key: process.env.STORM_KEY_NORMALIZER },
+  // DB손해보험 (보험 설계사·심사 코파일럿)
+  db_copilot:   { id: '7475031707699269632', key: process.env.STORM_KEY_DB_COPILOT },
+  db_qa:        { id: '7475031927252017152', key: process.env.STORM_KEY_DB_QA },
+  // NH농협생명 (보험 설계사·심사 코파일럿)
+  nh_copilot:   { id: '7475035395623297024', key: process.env.STORM_KEY_NH_COPILOT },
+  nh_qa:        { id: '7475035451983646720', key: process.env.STORM_KEY_NH_QA },
 };
 
 export default async function handler(req, res) {

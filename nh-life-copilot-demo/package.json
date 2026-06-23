@@ -1,0 +1,23 @@
+{
+  "name": "nh-life-copilot-demo",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "NH농협생명 AI 설계사·심사 코파일럿 데모 — 보장 갭분석 + 약관 Q&A (STORM RAG 실엔진)",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5175",
+    "build": "tsc && vite build",
+    "preview": "vite preview --port 4175"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}

@@ -4,7 +4,7 @@
 import { execSync } from 'node:child_process';
 import { cpSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
 
-const viteApps = ['epc-demo', 's-life-insurance-poc-demo', 'samsungfire-pe-poc-demo'];
+const viteApps = ['epc-demo', 's-life-insurance-poc-demo', 'samsungfire-pe-poc-demo', 'db-copilot-demo', 'nh-life-copilot-demo'];
 
 console.log('[build] clean public/');
 rmSync('public', { recursive: true, force: true });
