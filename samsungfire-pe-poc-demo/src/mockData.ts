@@ -12,7 +12,7 @@ export const INBOX_EMAILS: InboxEmail[] = [
 Please find attached Capital Call Notice #12 for Apollo Global Private Equity Fund VIII, L.P.
 
 Summary
-- Investor: Samsung Fire & Marine Insurance Co., Ltd. (APO-VIII-LP-0083)
+- Investor: Korea P&C Insurance Co., Ltd. (APO-VIII-LP-0083)
 - Commitment: USD 50,000,000
 - Drawn-to-Date (before this call): USD 28,000,000
 - This Call Amount: USD 4,500,000
@@ -272,7 +272,7 @@ export const EXTRACTION_RESULTS: Record<string, ExtractionResult> = {
     amount: 4500000,
     currency: 'USD',
     investorCode: 'APO-VIII-LP-0083',
-    matchRowContext: 'Investor Name: Samsung Fire & Marine Insurance Co., Ltd. · Investor ID: APO-VIII-LP-0083',
+    matchRowContext: 'Investor Name: Korea P&C Insurance Co., Ltd. · Investor ID: APO-VIII-LP-0083',
     matchConfidence: 99.9,
     ontologyMappings: [
       { sourceTerm: 'Capital Call', standardColumn: 'this_txn_type', value: 'Capital Call' },
@@ -309,7 +309,7 @@ export const EXTRACTION_RESULTS: Record<string, ExtractionResult> = {
     amount: 360000000,
     currency: 'JPY',
     investorCode: 'NPE-III-LP-S23',
-    matchRowContext: 'Investor: Samsung Fire & Marine · Investor Reference: NPE-III-LP-S23 · This Drawdown: JPY 360,000,000',
+    matchRowContext: 'Investor: Korea P&C Insurance · Investor Reference: NPE-III-LP-S23 · This Drawdown: JPY 360,000,000',
     matchConfidence: 99.7,
     ontologyMappings: [
       { sourceTerm: 'Drawdown', standardColumn: 'this_txn_type', value: 'Capital Call' },

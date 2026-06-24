@@ -112,17 +112,17 @@ export default function App() {
   function buildExtractorQuery(email: typeof INBOX_EMAILS[number]): string {
     switch (email.fundCase) {
       case 'apollo':
-        return 'Apollo Global Private Equity Fund VIII Capital Call Notice에서 삼성화재(APO-VIII-LP-0083) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
+        return 'Apollo Global Private Equity Fund VIII Capital Call Notice에서 당사(APO-VIII-LP-0083) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
       case 'kkr':
-        return 'KKR Asian Fund III Q1 2026 공통 노티스에서 삼성화재(S23) 행을 식별하고 표준 칼럼으로 매핑해 주세요.';
+        return 'KKR Asian Fund III Q1 2026 공통 노티스에서 당사(S23) 행을 식별하고 표준 칼럼으로 매핑해 주세요.';
       case 'nippon':
-        return 'Nippon Private Equity Partners Fund III Drawdown #5 (JPY) 노티스에서 삼성화재(NPE-III-LP-S23) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
+        return 'Nippon Private Equity Partners Fund III Drawdown #5 (JPY) 노티스에서 당사(NPE-III-LP-S23) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
       case 'tiger':
-        return 'Tiger Global Private Investment Partners XV Capital Account Statement에서 삼성화재(TG-XV-S23) 거래를 추출하고 용어를 표준 칼럼으로 매핑해 주세요.';
+        return 'Tiger Global Private Investment Partners XV Capital Account Statement에서 당사(TG-XV-S23) 거래를 추출하고 용어를 표준 칼럼으로 매핑해 주세요.';
       case 'silverlake':
-        return 'Silver Lake Partners VII Capital Call Notice #7에서 삼성화재(SLP-VII-IS-0042) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
+        return 'Silver Lake Partners VII Capital Call Notice #7에서 당사(SLP-VII-IS-0042) 거래를 추출하고 표준 칼럼으로 매핑해 주세요.';
       default:
-        return `${email.subject} 에서 삼성화재 거래를 추출하고 표준 칼럼으로 매핑해 주세요.`;
+        return `${email.subject} 에서 당사 거래를 추출하고 표준 칼럼으로 매핑해 주세요.`;
     }
   }
 

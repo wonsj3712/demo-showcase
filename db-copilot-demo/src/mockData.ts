@@ -4,17 +4,17 @@ import type { CopilotAnswer, QaAnswer, CustomerProfile, AgentMode } from './type
 // 브랜드 (회사별 교체 지점 — NH 복제 시 이 블록만 수정)
 // =====================================================
 export const BRAND = {
-  company: 'DB손해보험',
+  company: '손해보험',
   tagline: 'AI 설계사·심사 코파일럿',
   poweredBy: 'Powered by Sionic STORM',
   copilotPersona: { name: '김설계 FC', dept: '강남법인지점' },
   qaPersona: { name: '이보상 과장', dept: '장기보상심사파트' },
   // 업로드된 실제 약관 (근거 표시용)
   docList: [
-    '다이렉트 실손의료비2301 약관 (4세대)',
-    '참좋은암보험2301 약관',
-    '참좋은운전자보험2311 약관',
-    '실손의료비2101 약관',
+    '4세대 실손의료비 약관',
+    '암보험 약관',
+    '운전자보험 약관',
+    '실손의료비(구세대) 약관',
   ],
 };
 

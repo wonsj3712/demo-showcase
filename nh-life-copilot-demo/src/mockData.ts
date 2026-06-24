@@ -4,16 +4,16 @@ import type { CopilotAnswer, QaAnswer, CustomerProfile, AgentMode } from './type
 // 브랜드 (NH농협생명)
 // =====================================================
 export const BRAND = {
-  company: 'NH농협생명',
+  company: '생명보험',
   tagline: 'AI 설계사·심사 코파일럿',
   poweredBy: 'Powered by Sionic STORM',
-  copilotPersona: { name: '김농협 FC', dept: '디지털영업지원파트' },
+  copilotPersona: { name: '김설계 FC', dept: '디지털영업지원파트' },
   qaPersona: { name: '이심사 과장', dept: '보험금심사파트' },
   docList: [
-    '트루라이프NH종신보험 약관 (512p)',
-    '행복열매NH연금보험 약관 (216p)',
-    '백세팔팔NH건강보험 약관 (1,168p)',
-    '행복나눔NH통합암보험 약관 (1,000p)',
+    '종신보험 약관 (512p)',
+    '연금보험 약관 (216p)',
+    '건강보험 약관 (1,168p)',
+    '통합암보험 약관 (1,000p)',
     '+ 상품별 사업방법서 4종',
   ],
 };
