@@ -1,0 +1,90 @@
+{
+  "stores": [
+    {
+      "doc_name": "ㅁㅁ 사업승인도서",
+      "total_pages": 6,
+      "pages": [
+        {
+          "page_num": 1,
+          "category": "document",
+          "summary": "지하5층~지상30층 주상복합, 420세대, 총 주차 588대, 대지면적 8,969.80㎡, 건폐율 65.90%, 용적률 864.65%",
+          "has_markdown": true
+        },
+        {
+          "page_num": 2,
+          "category": "drawing",
+          "summary": "단지 전체 배치, 동 배치 및 타입, 도로 및 진출입구",
+          "has_markdown": false
+        },
+        {
+          "page_num": 3,
+          "category": "document",
+          "summary": "공동주택 각 실 천장/벽/바닥 마감재료 및 타입별 적용 기준",
+          "has_markdown": true
+        },
+        {
+          "page_num": 4,
+          "category": "drawing",
+          "summary": "확장형, 방3 욕실2, 드레스룸 팬트리",
+          "has_markdown": false
+        },
+        {
+          "page_num": 5,
+          "category": "drawing",
+          "summary": "확장형 3룸 2욕실, 드레스룸, 팬트리",
+          "has_markdown": false
+        },
+        {
+          "page_num": 6,
+          "category": "drawing",
+          "summary": "4Bay 판상형, 방3 욕실2, 드레스룸, 팬트리",
+          "has_markdown": false
+        }
+      ],
+      "indexed_at": "2026-04-23T18:39:17.038409"
+    },
+    {
+      "doc_name": "ㅁㅁ 실시도서",
+      "total_pages": 6,
+      "pages": [
+        {
+          "page_num": 1,
+          "category": "document",
+          "summary": "지하2층~지상29층, 791세대, 건폐율 30.17%, 용적률 247.28%, 주차 1,002대",
+          "has_markdown": true
+        },
+        {
+          "page_num": 2,
+          "category": "drawing",
+          "summary": "단지 전체 배치, 동별 호실 구성, 주출입구",
+          "has_markdown": false
+        },
+        {
+          "page_num": 3,
+          "category": "document",
+          "summary": "공동주택 각 실 천장/벽/바닥 마감재료 및 타입별 적용 기준",
+          "has_markdown": true
+        },
+        {
+          "page_num": 4,
+          "category": "drawing",
+          "summary": "4Bay 판상형, 방3 욕실2, 드레스룸 포함",
+          "has_markdown": false
+        },
+        {
+          "page_num": 5,
+          "category": "drawing",
+          "summary": "확장형, 방3 욕실2, 드레스룸, 팬트리",
+          "has_markdown": false
+        },
+        {
+          "page_num": 6,
+          "category": "drawing",
+          "summary": "4Bay 판상형, 방3 욕실2",
+          "has_markdown": false
+        }
+      ],
+      "indexed_at": "2026-04-23T18:40:39.463241"
+    }
+  ]
+}
