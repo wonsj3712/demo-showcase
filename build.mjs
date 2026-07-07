@@ -4,7 +4,8 @@
 import { execSync } from 'node:child_process';
 import { cpSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
 
-const viteApps = ['epc-demo', 's-life-insurance-poc-demo', 'samsungfire-pe-poc-demo', 'db-copilot-demo', 'nh-life-copilot-demo', 'floor-plan-demo'];
+// nh-life-copilot-demo는 카드 정리(2026-07-07)로 빌드 제외 — 소스 폴더는 보존
+const viteApps = ['epc-demo', 's-life-insurance-poc-demo', 'samsungfire-pe-poc-demo', 'db-copilot-demo', 'floor-plan-demo'];
 
 console.log('[build] clean public/');
 rmSync('public', { recursive: true, force: true });

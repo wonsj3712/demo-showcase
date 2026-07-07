@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dave's Sionic AI Demo Showcase</title>
+  <title>Sionic AI Demo Showcase (Internal)</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -146,6 +146,18 @@
       background: #1e3a5f;
       color: #bae6fd;
     }
+    .card.restricted { cursor: default; }
+    .card.restricted:hover { border-color: #334155; transform: none; }
+    .card.restricted .card-main { flex: 1; }
+    .restricted-note {
+      margin-top: 16px;
+      padding: 9px 12px;
+      font-size: 12.5px;
+      color: #94a3b8;
+      background: #16213a;
+      border: 1px dashed #33456b;
+      border-radius: 8px;
+    }
     .footnote {
       max-width: 1000px;
       width: 100%;
@@ -156,7 +168,7 @@
   </style>
 </head>
 <body>
-  <h1>Dave's Sionic AI Demo Showcase</h1>
+  <h1>Sionic AI Demo Showcase (Internal)</h1>
   <p class="subtitle">전시·영업 시연용 인터랙티브 데모 모음</p>
 
   <div class="wrap">
@@ -166,7 +178,7 @@
       <button class="folder-head" onclick="toggleFolder(this)">
         <span class="folder-icon">🏦</span>
         <span class="folder-name">금융</span>
-        <span class="folder-count">10</span>
+        <span class="folder-count">9</span>
         <span class="folder-caret">▾</span>
       </button>
       <div class="folder-body">
@@ -185,21 +197,9 @@
           </div>
 
           <div class="card">
-            <a class="card-main" href="/nh-life-copilot-demo/">
-              <h2>AI 생명보험 설계사·심사 코파일럿</h2>
-              <p>대형 생명보험사 대상. 설계사 코파일럿(보장 갭분석·맞춤 추천·상담 화법)과 약관·심사 Q&A 2개 모드. 종신·연금·건강·암 실제 약관 기반 근거 인용.</p>
-            </a>
-            <div class="agent-row">
-              <span class="label">에이전트</span>
-              <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7477544181644677120" target="_blank" rel="noopener">설계사 코파일럿</a>
-              <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7477545055825477632" target="_blank" rel="noopener">약관·심사 Q&A</a>
-            </div>
-          </div>
-
-          <div class="card">
             <a class="card-main" href="/s-life-insurance-poc-demo/">
-              <h2>AI 보험심사 에이전트 (지급·가입·법령)</h2>
-              <p>대형 생명보험사 PoC. 지급심사·가입심사·법령개정 비교 3종 AI 에이전트가 청구서류·약관·법령을 통합 검토하고 4요소 카드로 답변.</p>
+              <h2>AI 보험심사 시스템 (지급·가입·법령)</h2>
+              <p>대형 생명보험사 PoC. 지급심사·가입심사·법령개정 비교 3개 AI 심사 모듈이 청구서류·약관·법령을 통합 검토하고 4요소 카드로 답변.</p>
             </a>
             <div class="agent-row">
               <span class="label">에이전트</span>
@@ -223,37 +223,13 @@
           </div>
 
           <div class="card">
-            <a class="card-main" href="https://won-pe-fund-jp.vercel.app/" target="_blank" rel="noopener">
-              <h2>해외 사모펀드 입출금 자동화 <span style="font-size:12px;background:#1a3a8f;color:#fff;padding:2px 7px;border-radius:6px;vertical-align:middle;margin-left:6px;">JP리전</span> <span class="ext">↗</span></h2>
-              <p>대형 손해보험사 제안 과제. 해외 사모펀드 자본인출(Capital Call)·분배 노티스를 자동 분류·추출·표준 칼럼 매핑. 일본 리전 배포본(실엔진 연동).</p>
-            </a>
-            <div class="agent-row">
-              <span class="label">에이전트</span>
-              <a class="agent-chip" href="https://sionicstorm.jp/ja/answer/7477639868401008640" target="_blank" rel="noopener">메일분류</a>
-              <a class="agent-chip" href="https://sionicstorm.jp/ja/answer/7477639906387443712" target="_blank" rel="noopener">추출</a>
-              <a class="agent-chip" href="https://sionicstorm.jp/ja/answer/7477639945549660160" target="_blank" rel="noopener">정규화</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <a class="card-main" href="https://ibk-1stlab-loan-screening-ui-sable.vercel.app/" target="_blank" rel="noopener">
+            <a class="card-main" href="https://ai-loan-screening-demo.vercel.app/" target="_blank" rel="noopener">
               <h2>AI 주택담보대출 간편심사 <span class="ext">↗</span></h2>
-              <p>국책은행 대상. AI 기반 주택담보대출 간편심사 화면 데모. 신청 정보 입력부터 심사 결과까지.</p>
+              <p>국책은행 대상. AI 기반 주택담보대출 간편심사 화면 데모. 담보소재지 확인부터 신청 정보 입력, 실시간 심사 결과까지.</p>
             </a>
             <div class="agent-row">
               <span class="label">에이전트</span>
-              <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7469630656655810560" target="_blank" rel="noopener">여신심사</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <a class="card-main" href="https://won-loan-jp.vercel.app/" target="_blank" rel="noopener">
-              <h2>AI 주택담보대출 간편심사 <span style="font-size:12px;background:#1a3a8f;color:#fff;padding:2px 7px;border-radius:6px;vertical-align:middle;margin-left:6px;">JP리전</span> <span class="ext">↗</span></h2>
-              <p>국책은행 대상. AI 기반 주택담보대출 간편심사 화면 데모. 신청 정보 입력부터 심사 결과까지. 일본 리전 배포본(실엔진 연동).</p>
-            </a>
-            <div class="agent-row">
-              <span class="label">에이전트</span>
-              <a class="agent-chip" href="https://sionicstorm.jp/ja/answer/7477639146473209856" target="_blank" rel="noopener">여신심사</a>
+              <a class="agent-chip" href="https://www.sionicstorm.ai/ko/answer/7480071505259593728" target="_blank" rel="noopener">여신심사</a>
             </div>
           </div>
 
@@ -285,7 +261,7 @@
 
           <div class="card">
             <a class="card-main" href="https://nh-fund-poc.vercel.app" target="_blank" rel="noopener">
-              <h2>펀드 설명서 대조 검증 에이전트 <span class="ext">↗</span></h2>
+              <h2>펀드 설명서 대조 검증 시스템 <span class="ext">↗</span></h2>
               <p>대형 은행 준법감시부 PoC. DART 공시와 운용사 설명서를 AI로 자동 대조·검증.</p>
             </a>
             <div class="agent-row">
@@ -296,8 +272,8 @@
 
           <div class="card">
             <a class="card-main" href="https://nh-compliguard-demo.vercel.app" target="_blank" rel="noopener">
-              <h2>컴플리가드 · 준법감시 에이전트 <span class="ext">↗</span></h2>
-              <p>대형 은행 준법감시부 에이전트 시스템 데모.</p>
+              <h2>컴플리가드 · AI 준법감시 솔루션 <span class="ext">↗</span></h2>
+              <p>대형 은행 준법감시부 대상 AI 준법감시 통합 시스템 데모.</p>
             </a>
             <div class="agent-row">
               <span class="label">에이전트</span>
@@ -305,10 +281,12 @@
             </div>
           </div>
 
-          <div class="card">
-            <a class="card-main" href="https://dev-samsung-vc-insight.sionic.im/login" target="_blank" rel="noopener">
-              <h2>Venture Capital Ontology <span class="ext">↗</span></h2>
-            </a>
+          <div class="card restricted">
+            <div class="card-main">
+              <h2>파이낸스 온톨로지 프로젝트</h2>
+              <p>금융 투자 데이터를 온톨로지로 구조화해 기업·인물·펀드 간 관계를 탐색·질의하는 프로젝트.</p>
+            </div>
+            <div class="restricted-note">🔒 시연은 영업 담당자에게 문의해 주세요</div>
           </div>
 
         </div>
@@ -385,11 +363,12 @@
       <div class="folder-body">
         <div class="grid">
 
-          <div class="card">
-            <a class="card-main" href="https://storm-apis-parse-differ.vercel.app/" target="_blank" rel="noopener">
-              <h2>STORM APIs Parse Differ <span class="ext">↗</span></h2>
+          <div class="card restricted">
+            <div class="card-main">
+              <h2>STORM APIs Parse Differ</h2>
               <p>STORM 문서 파싱 결과를 비교·검증하는 도구 데모. 파서 버전·옵션별 추출 결과 차이를 한눈에 확인.</p>
-            </a>
+            </div>
+            <div class="restricted-note">🔒 시연은 영업 담당자에게 문의해 주세요</div>
           </div>
 
         </div>

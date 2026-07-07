@@ -1,65 +1,27 @@
-# Dave's Sionic AI Demo Showcase
+# Sionic AI Demo Showcase (Internal)
 
-Sionic AI 데모 웹 앱 모음. 전시·영업 시연 때 쉽게 데모 화면을 꺼내볼 수 있도록 GitHub Pages로 호스팅합니다.
+Sionic AI 데모 웹 앱 모음. 전시·영업 시연 때 데모 화면을 한곳에서 꺼내볼 수 있는 쇼케이스 사이트입니다.
 
-**데모 목록 페이지**: https://wonsj3712.github.io/demo-showcase/
+**라이브**: https://sionic-showcase-internal.vercel.app
 
-## Demos
+- 파트너·고객사에 링크 공유 가능(카드·화면 익명화 적용). 민감 데모 2종(파이낸스 온톨로지, Parse Differ)은 배너만 노출하고 링크는 제공하지 않습니다.
+- 각 카드의 "에이전트" 칩은 STORM 플랫폼(sionicstorm.ai, team.kr 사업팀) answer 화면으로, 시연자 로그인 후 열립니다.
+- 데모별 실제 고객사·에이전트 매핑 등 내부 상세는 `_마스터계획.md` 참조.
 
-| 데모 | 설명 | URL | 소스 |
-|------|------|-----|------|
-| EPC Email Issue Management | EPC 프로젝트 이메일 기반 이슈 추적/분류/대시보드 | [바로가기](https://wonsj3712.github.io/demo-showcase/epc-demo/) | `epc-demo/` (이 레포) |
-| Manufacturing Agent Demo | DK산업 제조업 설비 예방보전 AI 데모 (Next.js 정적 export, 목업 모드) | [바로가기](https://wonsj3712.github.io/demo-showcase/manufacturing-agent-demo/) | [wonsj3712/manufacturing-agent-demo](https://github.com/wonsj3712/manufacturing-agent-demo) (Private + Archived) |
-| S Life Insurance PoC Insurance Agent | 지급심사·가입심사·법령개정 비교 3종 AI 에이전트. 4요소 카드 답변 + 의심 영역 자동 식별 (STORM 워크플로우) | [바로가기](https://wonsj3712.github.io/demo-showcase/s-life-insurance-poc-demo/) | `s-life-insurance-poc-demo/` (이 레포) |
-| Samsung Fire · 해외 사모펀드 입출금 자동화 PoC | C-Lab 3차 임원 심사 데모. 공용 메일함 분류, 공통 노티스 S23 코드 검색, 펀드사별 용어 온톨로지 매핑, USD/EUR/JPY 환산, 사람 컨펌. PoC ↔ 본사업 SI 경계 시각화. | [바로가기](https://wonsj3712.github.io/demo-showcase/samsungfire-pe-poc-demo/) | `samsungfire-pe-poc-demo/` (이 레포) |
+## 구조
 
-## 라이브 배포 데모 (외부 호스팅 · 새 창)
+- **내장 데모** (이 레포에서 빌드): `epc-demo/`, `s-life-insurance-poc-demo/`, `samsungfire-pe-poc-demo/`, `db-copilot-demo/`, `floor-plan-demo/` (Vite) + `manufacturing-agent-demo/` (Next.js 정적, prefix 유지 복사)
+  - `nh-life-copilot-demo/`는 카드 정리(2026-07-07)로 빌드 제외, 소스만 보존
+- **외부 링크 데모**: 별도 Vercel 프로젝트로 배포된 데모를 카드에서 새 창으로 연결
+- **빌드**: `node build.mjs` → `public/` (Vercel buildCommand)
+- **서버리스 프록시**: `api/storm/[role].js` — 실엔진 데모의 STORM 호출 중계 (키는 Vercel 환경변수 `STORM_KEY_*`)
 
-외부 서버에 이미 배포된 데모를 링크로 연결합니다(방식 C). 소스/빌드 결과물은 이 레포에 복사하지 않습니다.
+## 배포
 
-| 데모 | 설명 | URL | 소스/호스팅 |
-|------|------|-----|------|
-| Venture Capital Ontology | Venture capital ontology | [바로가기](https://dev-samsung-vc-insight.sionic.im/login) | 외부 호스팅 (sionic.im, 로그인 필요) |
-| IBK 1stLab · AI 주택담보대출 간편심사 | IBK기업은행 혁신랩(1stLab) AI 기반 주택담보대출 간편심사 UI | [바로가기](https://ibk-1stlab-loan-screening-ui-sable.vercel.app/) | 외부 호스팅 (Vercel) |
-| KODIT · 기술보증기금 데모 | 기술보증기금(KODIT) 대상 AI 데모 (상세 미확인) | [바로가기](https://sionic-kodit.vercel.app/) | 외부 호스팅 (Vercel, 로그인 필요) |
-| KODATA · STORM 감정평가서 데이터화 | 한국평가데이터(KODATA) 과제. 부동산 감정평가서 디지털화·항목 추출·근거 기반 질의응답 | [바로가기](https://kodata-appraisal-demo.vercel.app/) | 외부 호스팅 (Vercel) |
-| STORM APIs Parse Differ | STORM 문서 파싱 결과를 비교·검증하는 도구 데모 | [바로가기](https://storm-apis-parse-differ.vercel.app/) | 외부 호스팅 (Vercel, 로그인 필요) |
-| NH농협 · 펀드 설명서 대조 PoC | NH농협은행 준법감시부 펀드 설명서 대조 PoC. DART 공시 vs 운용사 설명서 AI 자동 대조 | [바로가기](https://nh-fund-poc.vercel.app) | 외부 호스팅 (Vercel, 접근암호 필요) |
-| NH 컴플리가드 · 본사업 제안 데모 | 펀드 설명서 대조 본사업 비전 데모 (NH CompliGuard) | [바로가기](https://nh-compliguard-demo.vercel.app) | 외부 호스팅 (Vercel) |
-
-## 자동 배포
-
-`master` 브랜치에 push하면 GitHub Actions가 자동으로 빌드 + 배포합니다. 별도 빌드 명령 불필요.
+master push → Vercel 자동 빌드·배포. 수동 배포는 `vercel deploy --prod`.
 
 ## 데모 추가 방법
 
-데모 종류에 따라 두 가지 방식 중 하나로 추가합니다.
-
-### 방식 A — 이 레포 안에서 빌드 (Vite 등 가벼운 데모)
-1. 이 레포에 `{데모폴더명}/` 생성, 소스코드 + 데이터 + `package.json` 포함
-2. `vite.config.js`에 `base: '/demo-showcase/{데모폴더명}/'` 설정
-3. `.github/workflows/deploy.yml`에 해당 폴더 빌드 단계 추가
-4. 루트 `index.html`에 카드 추가, 이 README 표에도 추가
-5. push → 자동 빌드/배포
-
-예시: `epc-demo/`
-
-### 방식 B — 외부 레포에서 빌드한 결과물만 복사 (대형 SPA·Next.js 등)
-1. 별도 레포에서 소스 관리 + 빌드 (`npm run build` → `out/` 등)
-2. 빌드 결과물(`out/` 내용)을 이 레포의 `{데모폴더명}/` 폴더에 복사
-3. `{데모폴더명}/SOURCE.md`로 원본 위치 명시
-4. 루트 `index.html`에 카드 추가, 이 README 표에 소스 컬럼 함께 기입
-5. `.github/workflows/deploy.yml`의 `Assemble site` 단계에 `cp -r {데모폴더명}/. _site/{데모폴더명}/` 추가
-6. push → 자동 배포
-
-예시: `manufacturing-agent-demo/` — 소스는 [wonsj3712/manufacturing-agent-demo](https://github.com/wonsj3712/manufacturing-agent-demo) (Private + Archived). 수정 시 그 레포를 unarchive하여 작업할 것
-
-### 방식 C. 외부 호스팅 링크만 연결 (HF Space·Vercel 등 백엔드 포함 데모)
-
-FastAPI·Flask·Next.js SSR처럼 **서버가 필요한** 앱은 GitHub Pages 정적 배포가 불가능합니다. 이 경우 별도 호스팅에 올리고 쇼케이스에서는 링크만 연결합니다.
-
-1. 별도 호스팅(HF Space, Vercel, Railway 등)에 배포하고 공개 URL 확보
-2. 루트 `index.html`에 카드 추가. `href`는 외부 URL, `target="_blank" rel="noopener"` 필수
-3. 이 README 표에 행 추가. URL은 외부 호스팅, 소스 컬럼에 원본 레포 + 호스팅 링크 병기
-4. 이 레포엔 소스/빌드 결과물을 복사하지 않음. 링크만 유지
-5. master push → 즉시 반영 (별도 빌드 단계 없음)
+1. **내장(Vite)**: 데모 폴더 생성 → `build.mjs`의 `viteApps`에 추가 → `index.html`에 카드 추가
+2. **외부 호스팅**: 별도 Vercel 프로젝트로 배포 → `index.html`에 카드 추가 (`target="_blank" rel="noopener"`)
+3. 폴더 배지(`folder-count`) 숫자 갱신 잊지 말 것
